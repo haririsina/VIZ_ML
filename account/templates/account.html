@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel='stylesheet' href="{% static 'css/uicons-regular-rounded.css' %}">
+    <link rel='stylesheet' href="{% static 'css/uicons-solid-rounded.css' %}">
+    <script src="{% static 'js/lottie.min.js' %}"></script>
+    <title>ورود | ثبت نام</title>
+</head>
+<body>
+    <div id="container">
+        <div id="login_form" class="form">
+            <h2 class="form_title">ورود</h2>
+            <p class="form_description">لطفا فیلد های زیر را تکمیل نمایید</p>
+            <button class="btn_sign_in_google">
+                <img src="{% static 'imgs/google.svg' %}">
+                <p>ورود با حساب گوگل</p>
+            </button>
+            <p class="separator">یا با ایمیل وارد شوید</p>
+            <input type="email" id="login_username" class="form_input" placeholder="ایمیل">
+            <input type="password" id="login_pass" class="form_input" placeholder="رمز عبور">
+            <button id="btn_forgot_password">رمز عبور را فراموش کرده اید؟</button>
+            <button id="btn_login">ورود</button>
+            <p class="switch_form_text" id="switch_to_register">حساب کاربری ندارید؟ <span>ثبت نام</span></p>
+        </div>
+        <div id="register_form" class="form" style="display: none;">
+            <h2 class="form_title">ثبت نام</h2>
+            <p class="form_description">لطفا فیلد های زیر را تکمیل نمایید</p>
+            <button class="btn_sign_in_google">
+                <img src="{% static 'imgs/google.svg' %}">
+                <p>ثبت نام با حساب گوگل</p>
+            </button>
+            <p class="separator">یا با ایمیل ثبت نام کنید</p>
+            <div class="register_name_inputs_container">
+                <input type="text" id="register_first_name" class="form_input" placeholder="نام">
+                <input type="text" id="register_last_name" class="form_input" placeholder="نام خانوادگی">
+            </div>
+            <input type="email" id="register_email" class="form_input" placeholder="ایمیل">
+            <input type="password" id="register_pass" class="form_input" placeholder="رمز عبور">
+            <input type="password" id="register_pass_repeat" class="form_input" placeholder="تکرار رمز عبور">
+            <button id="btn_register">ثبت نام</button>
+            <p class="switch_form_text" id="switch_to_login">حساب کاربری دارید؟ <span>ورود</span></p>
+        </div>
+    </div>
+    <script src="{% static 'js/account.js' %}"></script>
+</body>
+</html>

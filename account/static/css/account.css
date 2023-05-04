@@ -1,0 +1,208 @@
+@font-face {
+    font-family: yekan;
+    src: url("../fonts/yekan.woff");
+}
+
+@font-face {
+    font-family: yekan_bold;
+    src: url("../fonts/yekan_bold.woff");
+}
+
+@font-face {
+    font-family: google_sans;
+    src: url("../fonts/google_sans.ttf");
+}
+
+
+
+:root {
+    --main-color: #1d3557;
+    --surface-color: #ecf0f1;
+    --secondary-color: #a8dadc;
+    --avatar-bg-color: #dddddd;
+    --logout-icon-color: #dca8a8;
+    --avatar-icon-color: #494949;
+    --hint-text-color: #a5a5a5;
+    --hint-text-color-light: var(--secondary-color);
+    --upload-datase-icon-color: var(--main-color);
+    --title-text-color: #424242;
+    --content-text-color: #5f5f5f;
+    --accent-color: #e63946;
+    --confirm-color: #81b29a;
+    --dismiss-color: #e07a5f;
+}
+
+::-webkit-input-placeholder {
+    font-family: yekan;
+}
+
+::-moz-placeholder {
+    font-family: yekan;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: var(--surface-color);
+    margin: 0;
+    padding: .5rem .5rem .5rem 0;
+    background-image: url("../imgs/login_bg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    direction: rtl;
+}
+
+p,
+h2 {
+    margin: 0;
+}
+
+input[type="email"] {
+    font-family: google_sans;
+}
+
+#container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 25%;
+    padding: 1rem;
+    font-family: yekan;
+    transition: .3s;
+}
+
+#register_form {
+    opacity: 0;
+}
+
+.form_title {
+    color: #457b9d;
+    font-size: 2rem;
+}
+
+.form_description {
+    color: #707070;
+    margin-top: .5rem;
+}
+
+.btn_sign_in_google {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #a5a5a5;
+    border-radius: 100px;
+    min-height: 50px;
+    margin: 3rem 0;
+    cursor: pointer;
+    font-size: .9rem;
+    font-family: yekan_bold;
+    color: #5e5e5e;
+}
+
+.btn_sign_in_google img {
+    width: 24px;
+    margin: 0 1rem;
+}
+
+.separator {
+    width: 100%;
+    background-color: var(--surface-color);
+    text-align: center;
+    color: #a1a1a1;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.form_input {
+    width: 100%;
+    height: 50px;
+    padding: 1rem 2rem;
+    border: 1px solid #dddddd;
+    border-radius: 100px;
+    font-size: .9rem;
+    font-family: yekan;
+    color: #5f5f5f;
+    margin-top: 2rem;
+}
+
+.form_input:focus {
+    border-color: #457b9d;
+    outline: none;
+}
+
+.register_name_inputs_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register_name_inputs_container input {
+    flex: 1;
+}
+
+.register_name_inputs_container input:first-of-type {
+    margin-right: .5rem;
+}
+
+.register_name_inputs_container input:last-of-type {
+    margin-left: .5rem;
+}
+
+#btn_forgot_password {
+    width: 100%;
+    text-align: right;
+    color: #457b9d;
+    font-size: .8rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-family: yekan;
+}
+
+#btn_login,
+#btn_register {
+    width: 100%;
+    min-height: 50px;
+    background-color: #457b9d;
+    color: white;
+    font-size: 1rem;
+    border-radius: 100px;
+    margin-top: 2rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: yekan_bold;
+}
+
+
+.switch_form_text {
+    width: 100%;
+    text-align: left;
+    font-size: .9rem;
+    color: #000;
+    margin-top: 2rem;
+    font-family: yekan;
+}
+
+.switch_form_text span {
+    color: #457b9d;
+    cursor: pointer;
+}
