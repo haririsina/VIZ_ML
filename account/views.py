@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from rest_framework import generics
 
+from .models import CustomUser
 
+from .serializers import UserSerializer
 
+class RegisterUser(generics.CreateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
 
-def login_view(request):
-    return render(request, 'account.html')
+register_user = RegisterUser.as_view()
