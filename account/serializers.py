@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth import authenticate
 
 from .models import CustomUser
 
@@ -35,3 +36,15 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+    
+
+class LoginSerializer(serializers.Serializer):
+    email = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
+
+    def validate(self, attrs):
+        user = authenticate(**attrs)
+        if user and user.is_active:
+            return user
+        
+        raise serializers.ValidationError("اطلاعات وارد شده صحیح نمی باشد")

@@ -9,7 +9,7 @@ const input_register_last_name = document.querySelector("#register_last_name")
 const input_register_email = document.querySelector("#register_email")
 const input_register_pass = document.querySelector("#register_pass")
 const input_register_pass_repeat = document.querySelector("#register_pass_repeat")
-const input_login_username = document.querySelector("#login_username")
+const input_login_email = document.querySelector("#login_email")
 const input_login_pass = document.querySelector("#login_pass")
 
 const btn_login = document.querySelector("#btn_login")
@@ -95,36 +95,52 @@ btn_switch_to_login.onclick = () => {
 }
 
 btn_login.onclick = async () => {
-    if (input_login_username.value.trim() == "") {
-        input_login_username.style.borderColor = "#e63946"
+    if (input_login_email.value.trim() == "") {
+        input_login_email.style.borderColor = "#e63946"
+        dialog(true, "خطا", "لطفا تمامی فیلد ها را وارد کنید")
         return
     }
 
-    if (input_login_pass.value.trim() == "") {
+    if (input_login_pass.value == "") {
         input_login_pass.style.borderColor = "#e63946"
+        dialog(true, "خطا", "لطفا تمامی فیلد ها را وارد کنید")
         return
     }
 
-    result = await fetch("http://localhost:8000/account/login", {
+    loading(true, "در حال ارسال اطلاعات، لطفا صبر کنید ...")
+
+    response = await fetch("http://127.0.0.1:8000/account/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            "username": input_login_username.value,
+            "email": input_login_email.value.trim(),
             "password": input_login_pass.value
         })
+    }).catch(err => {
+        loading(false)
+        dialog(true, "خطا", "خطا در برقراری ارتباط، لطفا مجددا تلاش کنید")
     })
 
-    if (result.status == 200) {
-        window.location.replace("http://localhost:8000/panel")
+    let data = await response.json()
+
+    if (response.status == 200) {
+        localStorage["token"] = data.token
+        localStorage["user_full_name"] = data.user.first_name + " " + data.user.last_name
+        localStorage["user_email"] = data.user.email
+        window.location.replace("http://127.0.0.1:8000/panel")
+    } else if (data["non_field_errors"]) {
+        loading(false)
+        dialog(true, "خطا", data["non_field_errors"])
     } else {
-        alert("Login failed!")
+        loading(false)
+        dialog(true, "خطا", "خطا در برقراری ارتباط، لطفا مجددا تلاش کنید")
     }
 }
 
-input_login_username.addEventListener("focus", () => {
-    input_login_username.style.borderColor = "#dddddd"
+input_login_email.addEventListener("focus", () => {
+    input_login_email.style.borderColor = "#dddddd"
 })
 
 input_login_pass.addEventListener("focus", () => {
@@ -232,7 +248,7 @@ btn_register.onclick = async () => {
     loading(false)
 
     if (response.status == 201) {
-        dialog(true, "حساب شما ایجاد شد!", "برای وارد شدن به حساب کاربری خود از صفحه ورود استفاده کنید")
+        dialog(true, "حساب ایجاد شد!", "برای وارد شدن به حساب کاربری خود از صفحه ورود استفاده کنید")
         form_register.style.opacity = "0"
         setTimeout(() => {
             form_register.style.display = "none"
