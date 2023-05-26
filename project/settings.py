@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'knox',
-    'account'
+    'account',
+    'panel'
 ]
 
 MIDDLEWARE = [
