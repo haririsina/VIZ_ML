@@ -1,0 +1,314 @@
+@font-face {
+    font-family: yekan;
+    src: url("../fonts/yekan.woff");
+}
+
+@font-face {
+    font-family: yekan_bold;
+    src: url("../fonts/yekan_bold.woff");
+}
+
+@font-face {
+    font-family: google_sans;
+    src: url("../fonts/google_sans.ttf");
+}
+
+@font-face {
+    font-family: yekan_num;
+    src: url("../fonts/yekan_num.woff");
+}
+
+
+:root {
+    --main-color: #1d3557;
+    --background-color: #E4E4E4;
+    --surface-color: #ecf0f1;
+    --on-surface-color: #494949;
+    --secondary-color: #a8dadc;
+    --secondary-variation-color: #509FB2;
+    --on-secondary-variation-color: #DDDDDD;
+    --avatar-bg-color: #dddddd;
+    --logout-icon-color: #dca8a8;
+    --avatar-icon-color: #494949;
+    --hint-text-color: #a5a5a5;
+    --hint-text-color-light: var(--secondary-color);
+    --upload-datase-icon-color: var(--main-color);
+    --title-text-color: #424242;
+    --content-text-color: #5f5f5f;
+    --accent-color: #e63946;
+    --confirm-color: #81b29a;
+    --dismiss-color: #e07a5f;
+    --color-on-main: #fff;
+    --dialog-bg-color: #fff;
+    --logout-action-bg-color: rgba(230, 57, 70, .2);
+    --add-fund-action-bg-color: rgba(129, 178, 154, .2);
+    --add-fund-action-content-color: #387E5C;
+    --dashboard-card-icon-bg-color: #dddddd;
+    --dashboard-card-icon-color: #e07a5f;
+}
+
+::-webkit-input-placeholder {
+    font-family: yekan;
+}
+
+::-moz-placeholder {
+    font-family: yekan;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+    direction: rtl;
+    font-size: 16px;
+}
+
+p,
+h2 {
+    margin: 0;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+button:hover {
+    outline: none;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner_container {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#dashboard .header {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dashboard .content {
+    width: 100%;
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    flex-wrap: wrap;
+}
+
+#dashboard .header_card, #dashboard .content_card {
+    flex: 1;
+    display: flex;
+    background-color: var(--surface-color);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 15px;    
+    height: 100%;
+    border-radius: 1em;
+    margin: 0 .5em;
+    justify-content: flex-start;
+}
+
+#dashboard .header_card .icon_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-variation-color);
+    flex: 1.2;
+    border-radius: 50% 1em 1em 50%;
+}
+
+#dashboard .header_card .icon_container i {
+    font-size: 3em;
+    color: var(--on-secondary-variation-color);
+}
+
+#dashboard .header_card .content_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 3;
+}
+
+#dashboard .header_card .action_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border-radius: 1em 0 0 1em;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+#dashboard .header_card #action_logout {
+    background-color: var(--logout-action-bg-color);
+    border-right: 2px dashed var(--accent-color);
+}
+
+#dashboard .header_card #action_add_fund {
+    background-color: var(--add-fund-action-bg-color);
+    border-right: 2px dashed var(--add-fund-action-content-color);
+}
+
+#dashboard .header_card .content_value {
+    font-size: 1.5em;
+    color: var(--on-surface-color);
+    font-family: yekan_num;
+}
+
+#dashboard .header_card .content_title {
+    font-size: 1em;
+    color: var(--hint-text-color);
+    font-family: yekan;
+}
+
+#dashboard .header_card #action_logout i {
+    color: var(--accent-color);
+    font-size: 2em;
+}
+
+#dashboard .header_card #action_logout p {
+    font-size: 1.2em;
+    color: var(--accent-color);
+    font-family: yekan;
+}
+
+#dashboard .header_card #action_add_fund i {
+    color: var(--add-fund-action-content-color);
+    font-size: 2em;
+}
+
+#dashboard .header_card #action_add_fund p {
+    font-size: 1.2em;
+    color: var(--add-fund-action-content-color);
+    font-family: yekan;
+}
+
+#dashboard .content_card { 
+    flex-direction: column;
+    min-width: 200px;
+}
+
+#dashboard .content_card .icon_container {
+    width: 100%;
+    flex: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+
+}
+
+#dashboard .content_card .icon_container .inner_container {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dashboard-card-icon-bg-color);
+}
+
+#dashboard .content_card .icon_container .inner_container i {
+    font-size: 5em;
+    color: var(--dashboard-card-icon-color);
+}
+
+#dashboard .content_card .title_container {
+    width: 100%;
+    flex: 1;
+    font-family: yekan_bold;
+    color: var(--on-surface-color);
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dashboard .content_card .description_container {
+    width: 100%;
+    flex: 1.5;
+    font-family: yekan;
+    color: var(--hint-text-color);
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 1em;
+}
+
+@media screen and (max-width: 1630px) {
+    #dashboard .content_card .icon_container .inner_container {
+        width: 8em;
+        height: 8em;
+    }
+
+    #dashboard .content_card .icon_container .inner_container i {
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        font-size: 12px;
+    }
+
+    .inner_container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #dashboard .header {
+        flex-direction: column;
+    }
+
+    .inner_container {
+        height: 50%;
+    }
+
+    #dashboard .header_card {
+        width: 100%;
+        min-height: 100px;
+        margin: 1em;
+    }
+
+    #dashboard .content_card {
+        margin-bottom: 1em;
+    }
+}

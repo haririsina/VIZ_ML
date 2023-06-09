@@ -1,5 +1,7 @@
 from django.urls import path, include
 
+from .views import *
+
 urlpatterns = [
-    path('', include('panel.urls'))
+    path('', panel_view)
 ]
