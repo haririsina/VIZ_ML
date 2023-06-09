@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'knox',
     'account',
-    'panel'
+    'panel',
+    'draw'
 ]
 
 MIDDLEWARE = [
