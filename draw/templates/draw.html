@@ -10,11 +10,22 @@
     <link rel='stylesheet' href="{% static 'css/uicons-solid-rounded.css' %}">
     <link rel='stylesheet' href="{% static 'css/uicons-solid-straight.css' %}">
     <script src="{% static 'js/loader.js' %}"></script>
+    <script src="{% static 'js/jszip.js' %}"></script>
+    <script src="{% static 'js/xlsx.js' %}"></script>
     <title>رسم نمودار</title>
 </head>
 <body>
+    <div class="dialog_wrapper">
+        <div class="dialog_container">
+            <p class="dialog_title"></p>
+            <p class="dialog_content">این یک متن اساین یک متن است این یک متن اس این یک متن اس این یک متن اس این یک متن اس</p>
+            <p class="dialog_btns_container">
+                <button class="dialog_yes_btn">متوجه شدم</button>
+            </p>
+        </div>
+    </div>
     <div id="container">
-        <div class="inner_container" id="page_upload_dataset" style="display: none;">
+        <div class="inner_container" id="page_upload_dataset" >
             <div class="header_container">
                 <i class="fi fi-rr-angle-right"></i>
                 <p>بازگشت به پنل کاربری</p>
@@ -65,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="inner_container" id="page_select_diagram">
+        <div class="inner_container" id="page_select_diagram" style="display: none;">
             <div class="header_container">
                 <i class="fi fi-rr-angle-right"></i>
                 <p>بازگشت</p>
@@ -116,7 +127,9 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/global.js' %}"></script>
     <script src="{% static 'js/charts.js' %}"></script>
     <script src="{% static 'js/diagram_preview.js' %}"></script>
+    <script src="{% static 'js/dataset.js' %}"></script>
 </body>
 </html>
