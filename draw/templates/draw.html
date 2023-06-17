@@ -9,11 +9,12 @@
     <link rel='stylesheet' href="{% static 'css/uicons-regular-rounded.css' %}">
     <link rel='stylesheet' href="{% static 'css/uicons-solid-rounded.css' %}">
     <link rel='stylesheet' href="{% static 'css/uicons-solid-straight.css' %}">
+    <script src="{% static 'js/loader.js' %}"></script>
     <title>رسم نمودار</title>
 </head>
 <body>
     <div id="container">
-        <div class="inner_container">
+        <div class="inner_container" id="page_upload_dataset" style="display: none;">
             <div class="header_container">
                 <i class="fi fi-rr-angle-right"></i>
                 <p>بازگشت به پنل کاربری</p>
@@ -64,6 +65,58 @@
                 </div>
             </div>
         </div>
+        <div class="inner_container" id="page_select_diagram">
+            <div class="header_container">
+                <i class="fi fi-rr-angle-right"></i>
+                <p>بازگشت</p>
+            </div>
+            <div class="content_container">
+                <div class="digram_item_container">
+                    <p>نمودار خطی</p>
+                    <div id="preview_diagram_line_chart"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار طرح پراکنده</p>
+                    <div id="preview_diagram_scatter_plot"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار مساحتی</p>
+                    <div id="preview_diagram_area_chart"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار حبابی</p>
+                    <div id="preview_diagram_bubble_chart"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نقشه</p>
+                    <div id="preview_diagram_choropleth_map"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>هیستوگرام</p>
+                    <div id="preview_diagram_histogram"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار میله ای</p>
+                    <div id="preview_diagram_bar_chart"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>جدول</p>
+                    <div id="preview_diagram_table"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نفشه درختی</p>
+                    <div id="preview_diagram_tree_map"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار دایره ای</p>
+                    <div id="preview_diagram_pie_chart"></div>
+                </div>
+                <div class="digram_item_empty_container"></div>
+                <div class="digram_item_empty_container"></div>
+            </div>
+        </div>
     </div>
+    <script src="{% static 'js/charts.js' %}"></script>
+    <script src="{% static 'js/diagram_preview.js' %}"></script>
 </body>
 </html>

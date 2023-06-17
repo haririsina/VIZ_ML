@@ -71,6 +71,7 @@ html {
     background-color: var(--background-color);
     direction: rtl;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 p,
@@ -203,4 +204,49 @@ button:hover {
 .tip_item_content {
     margin-top: 1em;
     font-family: yekan;
+}
+
+#page_select_diagram .content_container {
+    flex-wrap: wrap;
+}
+
+.digram_item_container {
+    min-width: 300px;
+    flex: 1;
+    background-color: var(--surface-color);
+    border-radius: 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 300px;
+    cursor: pointer;
+    margin: 1em 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-left: 1em;
+    text-align: center;
+    overflow: hidden;
+}
+
+.digram_item_empty_container {
+    min-width: 300px;
+    flex: 1;
+    background-color: transparent;
+    height: 300px;
+    margin: 1em 1em;
+}
+
+.digram_item_container:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.digram_item_container p {
+    font-family: yekan;
+    font-size: 1em;
+    color: var(--on-surface-color);
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.digram_item_container div[dir="ltr"] {
+    width: unset!important;
 }
