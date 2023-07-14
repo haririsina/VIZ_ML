@@ -113,11 +113,16 @@ button:hover {
     font-size: 1em;
     align-items: center;
     color: var(--hint-text-color);
-    cursor: pointer;
 }
 
-.header_container:hover {
+.header_container div:hover {
     color: var(--title-text-color);
+}
+
+.header_container div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .header_container p {

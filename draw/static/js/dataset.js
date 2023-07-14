@@ -34,6 +34,7 @@ input_dataset.onchange = (e) => {
             var json_object = JSON.stringify(XL_row_object);
             dataset_data = JSON.parse(json_object)
             navigateTo(SECTION_SELECT_DIAGRAM)
+            input_dataset.value = ""
         })
     }
     reader.readAsBinaryString(file)

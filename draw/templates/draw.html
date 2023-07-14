@@ -77,67 +77,69 @@
         </div>
         <div class="inner_container" id="section_select_diagram" style="display: none;">
             <div class="header_container">
-                <i class="fi fi-rr-angle-right"></i>
-                <p>بازگشت</p>
+                <div id="back_to_dataset">
+                    <i class="fi fi-rr-angle-right"></i>
+                    <p>بازگشت</p>
+                </div>
             </div>
             <div class="content_container">
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_linear_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار خطی</p>
                     <div id="preview_diagram_line_chart"></div>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_scatter" onclick="on_digram_clicked(this)">
                     <p>نمودار طرح پراکنده</p>
                     <img src="{% static 'imgs/preview_scatter.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_scatter_matrix" onclick="on_digram_clicked(this)">
                     <p>نمودار طرح پراکنده ماتریسی</p>
                     <img src="{% static 'imgs/preview_scatter_matrix.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_area_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار مساحتی</p>
                     <div id="preview_diagram_area_chart"></div>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_bubble_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار حبابی</p>
                     <div id="preview_diagram_bubble_chart"></div>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_choropleth_map" onclick="on_digram_clicked(this)">
                     <p>نقشه</p>
                     <div id="preview_diagram_choropleth_map"></div>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_histogram" onclick="on_digram_clicked(this)">
                     <p>هیستوگرام</p>
                     <img src="{% static 'imgs/preview_histogram.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_parallel_coordinates" onclick="on_digram_clicked(this)">
                     <p>نمودار مختصات موازی</p>
                     <img src="{% static 'imgs/preview_parallel_coordinates.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_bar_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار میله ای</p>
                     <img src="{% static 'imgs/preview_bar.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_stacked_bar_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار میله ای انباشته</p>
                     <img src="{% static 'imgs/preview_stacked_bar.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_clustered_bar_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار میله ای خوشه ای</p>
                     <img src="{% static 'imgs/preview_clustered_bar.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_table" onclick="on_digram_clicked(this)">
                     <p>جدول</p>
                     <img src="{% static 'imgs/preview_table.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_treemap" onclick="on_digram_clicked(this)">
                     <p>نفشه درختی</p>
                     <img src="{% static 'imgs/preview_treemap.png' %}"/>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_pie_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار دایره ای</p>
                     <div id="preview_diagram_pie_chart"></div>
                 </div>
-                <div class="digram_item_container">
+                <div class="digram_item_container" id="diagram_radar" onclick="on_digram_clicked(this)">
                     <p>رادار</p>
                     <img src="{% static 'imgs/preview_radar.png' %}"/>
                 </div>
@@ -148,5 +150,6 @@
     </div>
     <script src="{% static 'js/global.js' %}"></script>
     <script src="{% static 'js/dataset.js' %}"></script>
+    <script src="{% static 'js/select_diagrams.js' %}"></script>
 </body>
 </html>
