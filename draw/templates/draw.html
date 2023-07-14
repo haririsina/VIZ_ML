@@ -25,7 +25,7 @@
         </div>
     </div>
     <div id="container">
-        <div class="inner_container" id="page_upload_dataset" >
+        <div class="inner_container" id="page_upload_dataset" style="display: none" >
             <div class="header_container">
                 <i class="fi fi-rr-angle-right"></i>
                 <p>بازگشت به پنل کاربری</p>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="inner_container" id="page_select_diagram" style="display: none;">
+        <div class="inner_container" id="page_select_diagram">
             <div class="header_container">
                 <i class="fi fi-rr-angle-right"></i>
                 <p>بازگشت</p>
@@ -88,7 +88,11 @@
                 </div>
                 <div class="digram_item_container">
                     <p>نمودار طرح پراکنده</p>
-                    <div id="preview_diagram_scatter_plot"></div>
+                    <img src="{% static 'imgs/preview_scatter.png' %}"/>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار طرح پراکنده ماتریسی</p>
+                    <img src="{% static 'imgs/preview_scatter_matrix.png' %}"/>
                 </div>
                 <div class="digram_item_container">
                     <p>نمودار مساحتی</p>
@@ -104,23 +108,39 @@
                 </div>
                 <div class="digram_item_container">
                     <p>هیستوگرام</p>
-                    <div id="preview_diagram_histogram"></div>
+                    <img src="{% static 'imgs/preview_histogram.png' %}"/>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار مختصات موازی</p>
+                    <img src="{% static 'imgs/preview_parallel_coordinates.png' %}"/>
                 </div>
                 <div class="digram_item_container">
                     <p>نمودار میله ای</p>
-                    <div id="preview_diagram_bar_chart"></div>
+                    <img src="{% static 'imgs/preview_bar.png' %}"/>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار میله ای انباشته</p>
+                    <img src="{% static 'imgs/preview_stacked_bar.png' %}"/>
+                </div>
+                <div class="digram_item_container">
+                    <p>نمودار میله ای خوشه ای</p>
+                    <img src="{% static 'imgs/preview_clustered_bar.png' %}"/>
                 </div>
                 <div class="digram_item_container">
                     <p>جدول</p>
-                    <div id="preview_diagram_table"></div>
+                    <img src="{% static 'imgs/preview_table.png' %}"/>
                 </div>
                 <div class="digram_item_container">
                     <p>نفشه درختی</p>
-                    <div id="preview_diagram_tree_map"></div>
+                    <img src="{% static 'imgs/preview_treemap.png' %}"/>
                 </div>
                 <div class="digram_item_container">
                     <p>نمودار دایره ای</p>
                     <div id="preview_diagram_pie_chart"></div>
+                </div>
+                <div class="digram_item_container">
+                    <p>رادار</p>
+                    <img src="{% static 'imgs/preview_radar.png' %}"/>
                 </div>
                 <div class="digram_item_empty_container"></div>
                 <div class="digram_item_empty_container"></div>

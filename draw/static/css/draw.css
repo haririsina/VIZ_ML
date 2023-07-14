@@ -213,7 +213,7 @@ button:hover {
 .digram_item_container {
     min-width: 300px;
     flex: 1;
-    background-color: var(--surface-color);
+    background-color: white;
     border-radius: 16px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     height: 300px;
@@ -247,8 +247,10 @@ button:hover {
     margin-bottom: 2em;
 }
 
-.digram_item_container div[dir="ltr"] {
-    width: unset!important;
+.digram_item_container img {
+    width: 100%;
+    height: 70%;
+    border-radius: 16px;
 }
 
 .dialog_wrapper {
