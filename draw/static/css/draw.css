@@ -316,3 +316,68 @@ button:hover {
 .blured {
     filter: blur(10px);
 }
+
+@media screen and (max-width: 1630px) {
+    #dashboard .content_card .icon_container .inner_container {
+        width: 8em;
+        height: 8em;
+    }
+
+    #dashboard .content_card .icon_container .inner_container i {
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+
+}
+
+@media screen and (max-width: 1200px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content_container {
+        flex-direction: column;
+        margin-top: 1em;
+        height: auto;
+    }
+
+    .tips_container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .tip_item {
+        width: 100%;
+    }
+
+    .upload_file_container {
+        width: 100%;
+        margin-top: 2em;
+        padding: 1em;
+    }
+
+    .upload_file_icon {
+        font-size: 5em;
+    }
+}
+
+@media screen and (max-width: 768px) {  
+    #container {
+        height: auto;
+    }
+    
+    .inner_container {
+        height: auto;
+        padding: 1em 0;
+    }
+}
