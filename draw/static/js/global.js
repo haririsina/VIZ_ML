@@ -1,8 +1,13 @@
+const SECTION_SELECT_DATASET = "section_select_dataset"
+const SECTION_SELECT_DIAGRAM = "section_select_diagram"
+
 const dialog_wrapper = document.querySelector(".dialog_wrapper")
 const container = document.querySelector("#container")
 const dialog_title = document.querySelector(".dialog_title")
 const dialog_content = document.querySelector(".dialog_content")
 const dialog_btn_yes = document.querySelector(".dialog_yes_btn")
+const section_select_dataset = document.querySelector("#section_select_dataset")
+const section_select_diagram = document.querySelector("#section_select_diagram")
 
 
 const dialog = (show, title = "", content = "") => {
@@ -26,5 +31,18 @@ dialog_btn_yes.onclick = () => {
 dialog_wrapper.onclick = (e) => {
     if (e.target == dialog_wrapper) {
         dialog(false)
+    }
+}
+
+const navigateTo = section_name => {
+    switch(section_name) {
+        case SECTION_SELECT_DATASET:
+            section_select_diagram.style.display = "none"
+            section_select_dataset.style.display = "flex"
+            break
+        case SECTION_SELECT_DIAGRAM:
+            section_select_dataset.style.display = "none"
+            section_select_diagram.style.display = "flex"
+            break
     }
 }

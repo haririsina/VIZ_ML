@@ -131,6 +131,7 @@ button:hover {
     width: 100%;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .upload_file_container {

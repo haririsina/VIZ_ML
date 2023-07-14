@@ -23,16 +23,17 @@ input_dataset.onchange = (e) => {
     }
 
     var reader = new FileReader()
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         var data = e.target.result;
         var workbook = XLSX.read(data, {
-          type: 'binary'
+            type: 'binary'
         });
-  
-        workbook.SheetNames.forEach(function(sheetName) {
-          var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-          var json_object = JSON.stringify(XL_row_object);
-          dataset_data = JSON.parse(json_object)
+
+        workbook.SheetNames.forEach(function (sheetName) {
+            var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+            var json_object = JSON.stringify(XL_row_object);
+            dataset_data = JSON.parse(json_object)
+            navigateTo(SECTION_SELECT_DIAGRAM)
         })
     }
     reader.readAsBinaryString(file)
