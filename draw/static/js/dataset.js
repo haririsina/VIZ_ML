@@ -8,7 +8,8 @@ upload_dataset_container.onclick = () => {
 }
 
 input_dataset.onchange = (e) => {
-    var file = e.target.files[0]
+    let file = e.target.files[0]
+    let file_type = file.type
 
     if (!file.name.endsWith(".csv") && !file.name.endsWith(".xlsx")) {
         dialog(true, "خطا", "فرمت فایل پشتیبانی نمی شود")
@@ -22,20 +23,38 @@ input_dataset.onchange = (e) => {
         return
     }
 
-    var reader = new FileReader()
-    reader.onload = function (e) {
-        var data = e.target.result;
-        var workbook = XLSX.read(data, {
-            type: 'binary'
-        });
 
-        workbook.SheetNames.forEach(function (sheetName) {
-            var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-            var json_object = JSON.stringify(XL_row_object);
-            dataset_data = JSON.parse(json_object)
+    let reader = new FileReader()
+    reader.onload = function (e) {
+        let data = e.target.result;
+
+        if (file_type == 'text/csv') {
+            dataset_data = parseClsToJson(data)
+        } else {
+            try {
+                let workbook = XLSX.read(data, {
+                    type: 'binary'
+                });
+    
+                workbook.SheetNames.forEach(function (sheetName) {
+                    let XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                    let json_object = JSON.stringify(XL_row_object);
+                    dataset_data = JSON.parse(json_object)
+                })
+            } catch {
+                dataset_data = "Error"
+            }
+        }
+
+        input_dataset.value = ""
+        
+        if (dataset_data == "Error") {
+            dialog(true, "خطا", "ساختار فایل صحیح نمی باشد")
+        } else {
             navigateTo(SECTION_SELECT_DIAGRAM)
-            input_dataset.value = ""
-        })
+        }
     }
+
     reader.readAsBinaryString(file)
 }
+
