@@ -2,6 +2,7 @@ const upload_dataset_container = document.querySelector(".upload_file_container"
 const input_dataset = document.querySelector("#choose_dataset_input")
 
 let dataset_data
+let dataset_columns_titles = ['Date', 'AveragePrice', 'Total Volume', 'Small Hass', 'Large Hass', 'XL Hass', 'Total Bags', 'Small Bags', 'Large Bags', 'XLarge Bags', 'Type', 'Year', 'Region']
 
 upload_dataset_container.onclick = () => {
     input_dataset.click()
@@ -29,7 +30,8 @@ input_dataset.onchange = (e) => {
         let data = e.target.result;
 
         if (file_type == 'text/csv') {
-            dataset_data = parseClsToJson(data)
+            dataset_data = data
+            dataset_columns_titles = csvKeys(data)
         } else {
             try {
                 let workbook = XLSX.read(data, {
@@ -39,7 +41,9 @@ input_dataset.onchange = (e) => {
                 workbook.SheetNames.forEach(function (sheetName) {
                     let XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
                     let json_object = JSON.stringify(XL_row_object);
-                    dataset_data = JSON.parse(json_object)
+                    let result_csv = jsonToCsv(JSON.parse(json_object))
+                    dataset_data = result_csv["result"]
+                    dataset_columns_titles = result_csv["keys"]
                 })
             } catch {
                 dataset_data = "Error"

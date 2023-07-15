@@ -11,7 +11,7 @@
     <link rel='stylesheet' href="{% static 'css/uicons-solid-straight.css' %}">
     <script src="{% static 'js/jszip.js' %}"></script>
     <script src="{% static 'js/xlsx.js' %}"></script>
-    <script src="{% static 'js/cls.js' %}"></script>
+    <script src="{% static 'js/csv.js' %}"></script>
     <title>رسم نمودار</title>
 </head>
 <body>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div id="container">
-        <div class="inner_container" id="section_select_dataset" >
+        <div class="inner_container" id="section_select_dataset" style="display: none;">
             <div class="header_container">
                 <i class="fi fi-rr-angle-right"></i>
                 <p>بازگشت به پنل کاربری</p>
@@ -148,19 +148,19 @@
                 <div class="digram_item_empty_container"></div>
             </div>
         </div>
-        <div class="inner_container" id="section_select_fields" style="display: none;">
+        <div class="inner_container" id="section_select_fields" >
             <div class="header_container">
                 <div id="back_to_diagrams">
                     <i class="fi fi-rr-angle-right"></i>
                     <p>بازگشت</p>
                 </div>
             </div>
-            <div class="content_container" style="max-height: 100%;">
+            <div id="fields_container" class="content_container" style="max-height: 100%;">
                 <div class="question_container">
                     <p class="target">فیلد <span>هدف</span> را انتخاب کنید</p>
                     <p class="variable" style="display: none;">فیلد <span>متغیر</span> را انتخاب کنید</p>
                 </div>
-                <div class="field_container sample">
+                <div class="field_container sample" onclick="on_field_clicked(this)">
                     <p>field 1</p>
                     <div class="label_target">
                         <p>هدف</p>
@@ -175,5 +175,6 @@
     <script src="{% static 'js/global.js' %}"></script>
     <script src="{% static 'js/dataset.js' %}"></script>
     <script src="{% static 'js/select_diagrams.js' %}"></script>
+    <script src="{% static 'js/select_fields.js' %}"></script>
 </body>
 </html>
