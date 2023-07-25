@@ -2,6 +2,7 @@ const fields_container = document.querySelector("#fields_container")
 const field_item_sample = document.querySelector(".field_container.sample")
 const question_container_target = document.querySelector(".question_container .target")
 const question_container_variable = document.querySelector(".question_container .variable")
+const btn_submit_fields = document.querySelector("#btn_submit_fields")
 
 let dataset_target 
 let dataset_variables = []
@@ -52,4 +53,14 @@ const on_field_clicked = (elmnt) => {
             )
         }
     }
+
+    if (dataset_target && dataset_variables.length > 0) {
+        btn_submit_fields.style.display = "block"
+    } else {
+        btn_submit_fields.style.display = "none"
+    }
+}
+
+btn_submit_fields.onclick = () => {
+    
 }
