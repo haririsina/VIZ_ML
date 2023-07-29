@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <div class="inner_container" id="section_select_diagram" style="display: none;">
+        <div class="inner_container" id="section_select_diagram" >
             <div class="header_container">
                 <div id="back_to_dataset">
                     <i class="fi fi-rr-angle-right"></i>
@@ -86,7 +86,11 @@
             <div class="content_container">
                 <div class="digram_item_container" id="diagram_linear_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار خطی</p>
-                    <div id="preview_diagram_line_chart"></div>
+                    <img src="{% static 'imgs/preview_line.png' %}"/>
+                </div>
+                <div class="digram_item_container" id="diagram_linear_chart" onclick="on_digram_clicked(this)">
+                    <p>نمودار خطی انباشته</p>
+                    <img src="{% static 'imgs/preview_stacked_line.png' %}"/>
                 </div>
                 <div class="digram_item_container" id="diagram_scatter" onclick="on_digram_clicked(this)">
                     <p>نمودار طرح پراکنده</p>
@@ -102,7 +106,7 @@
                 </div>
                 <div class="digram_item_container" id="diagram_bubble_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار حبابی</p>
-                    <div id="preview_diagram_bubble_chart"></div>
+                    <img src="{% static 'imgs/preview_bubble.png' %}"/>
                 </div>
                 <div class="digram_item_container" id="diagram_choropleth_map" onclick="on_digram_clicked(this)">
                     <p>نقشه</p>
@@ -144,11 +148,27 @@
                     <p>رادار</p>
                     <img src="{% static 'imgs/preview_radar.png' %}"/>
                 </div>
+                <div class="digram_item_container" id="diagram_radar" onclick="on_digram_clicked(this)">
+                    <p>نمودار شبکه</p>
+                    <img src="{% static 'imgs/preview_network.png' %}"/>
+                </div>
+                <div class="digram_item_container" id="diagram_radar" onclick="on_digram_clicked(this)">
+                    <p>هیت مپ</p>
+                    <img src="{% static 'imgs/preview_heat_map.png' %}"/>
+                </div>
+                <div class="digram_item_container" id="diagram_radar" onclick="on_digram_clicked(this)">
+                    <p>نمودار چگالی</p>
+                    <img src="{% static 'imgs/preview_density_chart.png' %}"/>
+                </div>
+                <div class="digram_item_container" id="diagram_radar" onclick="on_digram_clicked(this)">
+                    <p>نمودار نقطه و خط</p>
+                    <img src="{% static 'imgs/preview_dot_line.png' %}"/>
+                </div>
                 <div class="digram_item_empty_container"></div>
                 <div class="digram_item_empty_container"></div>
             </div>
         </div>
-        <div class="inner_container" id="section_select_fields" >
+        <div class="inner_container" id="section_select_fields" style="display: none;">
             <div class="header_container">
                 <div id="back_to_diagrams">
                     <i class="fi fi-rr-angle-right"></i>
