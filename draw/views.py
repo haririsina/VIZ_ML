@@ -1,7 +1,7 @@
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .pen import pen
 
 
 def draw_view(request):
@@ -9,8 +9,9 @@ def draw_view(request):
 
 
 def draw_chart(request):
-    # request.POST['diagram_name']
-    # request.POST['dataset']
-    # request.POST['target']
-    # json.loads(request.POST['variables'])
+    pen(request.POST['diagram_name'],
+        request.POST['dataset'],
+        request.POST['target'],
+        json.loads(request.POST['variables'])
+        )
     return HttpResponse(status=200)
