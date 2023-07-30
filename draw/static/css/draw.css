@@ -421,6 +421,96 @@ button:hover {
     display: none;
 }
 
+/* ---------------------- loading ------------------------- */
+
+.loading_container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 999;
+    flex-direction: column;
+    width: calc(100% - 4em);
+    height: calc(100% - 4em);
+}
+
+.loading_text {
+    margin-top: 2em;
+    font-size: 1.2em;
+    font-family: yekan_bold;
+    color: var(--title-text-color);
+}
+
+.sbl-seven-circles {
+    height: 9em;
+    width: 9em;
+    color: #5a5a5a;
+    position: relative;
+    animation: rotate 2s linear infinite;
+    display: inline-block;
+    margin-left: -0.5em;
+}
+
+.sbl-seven-circles div {
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    border: 1px solid;
+    position: absolute;
+}
+
+.sbl-seven-circles div:nth-child(1) {
+    top: 10%;
+    left: 5%;
+}
+
+.sbl-seven-circles div:nth-child(2) {
+    top: 0;
+    left: 25%;
+}
+
+.sbl-seven-circles div:nth-child(3) {
+    top: 10%;
+    right: 5%;
+}
+
+.sbl-seven-circles div:nth-child(4) {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.sbl-seven-circles div:nth-child(5) {
+    bottom: 0;
+    left: 25%;
+    border-color: var(--main-color);
+}
+
+.sbl-seven-circles div:nth-child(6) {
+    bottom: 10%;
+    left: 5%;
+}
+
+.sbl-seven-circles div:nth-child(7) {
+    bottom: 10%;
+    right: 5%;
+    border-color: var(--main-color);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------------------- loading ------------------------- */
+
 @media screen and (max-width: 1630px) {
     #dashboard .content_card .icon_container .inner_container {
         width: 8em;

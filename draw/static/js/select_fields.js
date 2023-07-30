@@ -16,6 +16,8 @@ const load_dataset_fields = () => {
             field_item
         )
     })
+
+    loading(false)
 }
 
 load_dataset_fields()
@@ -54,13 +56,59 @@ const on_field_clicked = (elmnt) => {
         }
     }
 
-    if (dataset_target && dataset_variables.length > 0) {
-        btn_submit_fields.style.display = "block"
-    } else {
-        btn_submit_fields.style.display = "none"
+    switch(selected_diagram) {
+        case DIAGRAM_LINE_CHART:
+        case DIAGRAM_AREA_CHART:
+            if (dataset_target && dataset_variables.length == 1) {
+                send_diagram_data()
+            }
+            break
+        case DIAGRAM_STACKED_LINE_CHART:
+            if (dataset_target && dataset_variables.length == 2) {
+                send_diagram_data()
+            }
+            break
+        case DIAGRAM_STACKED_AREA_CHART:
+            if (dataset_target && dataset_variables.length > 0) {
+                btn_submit_fields.style.display = "block"
+            } else {
+                btn_submit_fields.style.display = "none"
+            }
+            break
     }
+
+    
 }
 
 btn_submit_fields.onclick = () => {
     
+}
+
+function send_diagram_data() {
+    loading(true, "در حال پردازش، لطفا صبر کنید")
+
+    let data = {
+        diagram_name: selected_diagram,
+        dataset: dataset_data,
+        target: dataset_target,
+        variables: dataset_variables
+    }
+
+    fetch("127.0.0.1:8000/panel/draw/4631f492-e29b-4b75-92f0-68de73580db8", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(r => {
+        r.json().then(j => {
+            if (r.status == 200) {
+                j.url
+                loading(false)
+            } else {
+                dialog(true, "خطا", j.err_msg)
+            }
+        })
+    })
 }

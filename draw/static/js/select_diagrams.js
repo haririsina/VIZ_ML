@@ -1,7 +1,9 @@
-const DIAGRAM_LINEAR_CHART = "diagram_linear_chart"
+const DIAGRAM_LINE_CHART = "Line_Chart"
+const DIAGRAM_STACKED_LINE_CHART = "Stacked_Line_Chart"
 const DIAGRAM_SCATTER = "diagram_scatter"
 const DIAGRAM_SCATTER_MATRIX = "diagram_scatter_matrix"
-const DIAGRAM_AREA_CHART = "diagram_area_chart"
+const DIAGRAM_AREA_CHART = "Area_Chart"
+const DIAGRAM_STACKED_AREA_CHART = "Stacked_Area_Chart"
 const DIAGRAM_BUBBLE_CHART = "diagram_bubble_chart"
 const DIAGRAM_CHOROPLETH_MAP = "diagram_choropleth_map"
 const DIAGRAM_HISTOGRAM = "diagram_histogram"
@@ -25,5 +27,9 @@ back_to_dataset.onclick = () => {
 }
 
 const on_digram_clicked = (elmnt) => {
+    loading(true, "لطفا صبر کنید...")
     selected_diagram = elmnt.getAttribute("id")
+    section_select_diagram.style.display = "none"
+    section_select_fields.style.display = "flex"
+    load_dataset_fields()
 }

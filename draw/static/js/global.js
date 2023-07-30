@@ -8,6 +8,23 @@ const dialog_content = document.querySelector(".dialog_content")
 const dialog_btn_yes = document.querySelector(".dialog_yes_btn")
 const section_select_dataset = document.querySelector("#section_select_dataset")
 const section_select_diagram = document.querySelector("#section_select_diagram")
+const section_select_fields = document.querySelector("#section_select_fields")
+
+const loading_container = document.querySelector(".loading_container")
+const loading_text = document.querySelector(".loading_text")
+
+let loading = (show, hint = "") => {
+    let loading_display = show ? "flex" : "none"
+
+    loading_container.style.display = loading_display
+    loading_text.innerText = hint
+
+    if (show) {
+        container.classList.add("blured")
+    } else {
+        container.classList.remove("blured")
+    }
+}
 
 
 const dialog = (show, title = "", content = "") => {

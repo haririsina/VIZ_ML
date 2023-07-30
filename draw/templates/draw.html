@@ -24,6 +24,18 @@
             </p>
         </div>
     </div>
+    <div class="loading_container">
+        <div class="sbl-seven-circles">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p class="loading_text">Uploading...</p>
+    </div>
     <div id="container">
         <div class="inner_container" id="section_select_dataset" style="display: none;">
             <div class="header_container">
@@ -84,11 +96,11 @@
                 </div>
             </div>
             <div class="content_container">
-                <div class="digram_item_container" id="diagram_linear_chart" onclick="on_digram_clicked(this)">
+                <div class="digram_item_container" id="Line_Chart" onclick="on_digram_clicked(this)">
                     <p>نمودار خطی</p>
                     <img src="{% static 'imgs/preview_line.png' %}"/>
                 </div>
-                <div class="digram_item_container" id="diagram_linear_chart" onclick="on_digram_clicked(this)">
+                <div class="digram_item_container" id="Stacked_Line_Chart" onclick="on_digram_clicked(this)">
                     <p>نمودار خطی انباشته</p>
                     <img src="{% static 'imgs/preview_stacked_line.png' %}"/>
                 </div>
@@ -100,9 +112,13 @@
                     <p>نمودار طرح پراکنده ماتریسی</p>
                     <img src="{% static 'imgs/preview_scatter_matrix.png' %}"/>
                 </div>
-                <div class="digram_item_container" id="diagram_area_chart" onclick="on_digram_clicked(this)">
+                <div class="digram_item_container" id="Area_Chart" onclick="on_digram_clicked(this)">
                     <p>نمودار مساحتی</p>
                     <div id="preview_diagram_area_chart"></div>
+                </div>
+                <div class="digram_item_container" id="Stacked_Area_Chart" onclick="on_digram_clicked(this)">
+                    <p>نمودار مساحتی انباشته</p>
+                    <img src="{% static 'imgs/preview_stacked_area.png' %}"/>
                 </div>
                 <div class="digram_item_container" id="diagram_bubble_chart" onclick="on_digram_clicked(this)">
                     <p>نمودار حبابی</p>
