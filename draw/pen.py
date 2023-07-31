@@ -1,14 +1,14 @@
 from .enums import *
 import plotly.express as px
 import pandas as pd
-import sys
+import uuid
 import plotly.graph_objects as go
 from io import StringIO
 
 
-def pen(diagram_name, dataset, target, variables):
+def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.LINE_CHART.value:
-        plot_line_chart(dataset, target, variables)
+        return plot_line_chart(dataset, target, variables)
 
     if diagram_name == Chart.STACKED_LINE_CHART.value:
         plot_stacked_line_chart(dataset, target, variables)
@@ -17,11 +17,13 @@ def pen(diagram_name, dataset, target, variables):
         plot_stacked_area_chart(dataset, target, variables)
 
 
-def plot_line_chart(dataset, target, variables, ):
+def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
     fig = px.line(data_frame=df, x=variables[0], y=target)
-    fig.show()
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
 
 
 def plot_stacked_line_chart(dataset, target, variables):
