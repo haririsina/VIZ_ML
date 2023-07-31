@@ -151,3 +151,5 @@ ACCOUNT_USERNAME_REQUIRED = False
 DEFAULT_TZ = pytz.timezone("Asia/Tehran") 
 
 AUTH_USER_MODEL = 'account.CustomUser'
+
+X_FRAME_OPTIONS = 'ALLOWALL'

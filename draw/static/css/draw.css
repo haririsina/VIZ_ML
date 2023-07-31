@@ -421,6 +421,36 @@ button:hover {
     display: none;
 }
 
+.diagram_container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#_back_to_dashboard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1em;
+    margin-left: 1em;
+    color: white;
+    background-color: var(--main-color);
+    cursor: pointer;
+    font-family: yekan;
+    padding: .5em 1em;
+    border-radius: 8px;
+}
+
+#_back_to_dashboard:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.diagram_container iframe {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+}
+
 /* ---------------------- loading ------------------------- */
 
 .loading_container {

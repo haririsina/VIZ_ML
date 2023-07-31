@@ -81,7 +81,7 @@ const on_field_clicked = (elmnt) => {
 }
 
 btn_submit_fields.onclick = () => {
-    
+    send_diagram_data()
 }
 
 function send_diagram_data() {
@@ -94,17 +94,19 @@ function send_diagram_data() {
         variables: dataset_variables
     }
 
-    fetch("127.0.0.1:8000/panel/draw/4631f492-e29b-4b75-92f0-68de73580db8", {
+    let formData = new FormData()
+    formData.append("diagram_name", selected_diagram.replaceAll("_", " "))
+    formData.append("dataset", dataset_data)
+    formData.append("target", dataset_target)
+    formData.append("variables", JSON.stringify(dataset_variables))
+
+    fetch("http://127.0.0.1:8000/panel/draw/4631f492-e29b-4b75-92f0-68de73580db8", {
         method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        body: formData
     }).then(r => {
         r.json().then(j => {
             if (r.status == 200) {
-                j.url
+                show_diagram(j.url)
                 loading(false)
             } else {
                 dialog(true, "خطا", j.err_msg)
