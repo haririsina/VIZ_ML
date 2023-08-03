@@ -33,6 +33,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
     
     if diagram_name == Chart.SCATTER_MATRIX_CHART.value:
         return plot_scatter_matrix_chart(dataset, target, variables)
+    
+    if diagram_name == Chart.PARALLEL_COORDINATES_CHART.value:
+        return plot_parallel_coordinates_chart(dataset, target, variables)
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -256,12 +259,27 @@ def plot_scatter_chart(dataset, target, variables):
 def plot_scatter_matrix_chart(dataset, target, variables):
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
-    fig = None
 
     fig = px.scatter_matrix(
         data_frame=df, 
         dimensions=variables if len(variables) > 1 else None, 
         color=target if target != "" else None
+    )
+
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_parallel_coordinates_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+    fig = px.parallel_coordinates(
+        data_frame=df, 
+        color=target,
+        dimensions=variables,
+        color_continuous_scale=px.colors.diverging.Tealrose,
+        color_continuous_midpoint=2
     )
 
     file_name = f"{uuid.uuid4()}.html"

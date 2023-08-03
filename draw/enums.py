@@ -12,3 +12,4 @@ class Chart(Enum):
     BUBBLE_CHART = "Bubble Chart"
     SCATTER_CHART = "Scatter Plot"
     SCATTER_MATRIX_CHART = "Scatter Plot Matrix"
+    PARALLEL_COORDINATES_CHART = "Parallel Coordinates Plot"
