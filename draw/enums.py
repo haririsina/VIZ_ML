@@ -6,6 +6,5 @@ class Chart(Enum):
     STACKED_LINE_CHART = "Stacked Line Chart"
     AREA_CHART = "Area Chart"
     STACKED_AREA_CHART = "Stacked Line Chart"
-    FRIDAY = 5
-    SATURDAY = 6
-    SUNDAY = 7
+    DOT_LINE_CHART = "Dot Line Chart"
+    HEAT_MAP_CHART = "Heat Map Chart"
