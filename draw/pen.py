@@ -25,6 +25,8 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.DENSITY_CHART.value:
         return plot_density_chart(dataset, target, variables)
 
+    if diagram_name == Chart.BUBBLE_CHART.value:
+        return plot_bubble_chart(dataset, target, variables)
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -187,6 +189,44 @@ def plot_density_chart(dataset, target, variables):
     # Create the figure with the trace and layout
     fig = go.Figure(data=[trace], layout=layout)
 
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_bubble_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+
+    # Get the X, Y, and bubble sizes from the chosen columns
+    x_values = df[variables[0]].values
+    y_values = df[variables[1]].values
+    bubble_sizes = df[target].values
+
+    # Create the trace for the bubble chart
+    trace = go.Scatter(
+        x=x_values,
+        y=y_values,
+        mode='markers',
+        marker=dict(
+            size=bubble_sizes,
+            sizemode='diameter',
+            sizeref=max(bubble_sizes) / 30,  # Adjust the scaling of bubble size here
+            opacity=0.7
+        ),
+        hoverinfo='text',
+    )
+
+    # Create the layout for the chart
+    layout = go.Layout(
+        title='Bubble Chart',
+        xaxis=dict(title=variables[0]),
+        yaxis=dict(title=variables[1]),
+        hovermode='closest'
+    )
+
+    # Create the figure with the trace and layout
+    fig = go.Figure(data=[trace], layout=layout)
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
     return file_name

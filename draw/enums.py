@@ -9,3 +9,4 @@ class Chart(Enum):
     DOT_LINE_CHART = "Dot Line Chart"
     HEAT_MAP_CHART = "Heat Map Chart"
     DENSITY_CHART = "Density Chart"
+    BUBBLE_CHART = "Bubble Chart"
