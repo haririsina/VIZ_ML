@@ -11,3 +11,4 @@ class Chart(Enum):
     DENSITY_CHART = "Density Chart"
     BUBBLE_CHART = "Bubble Chart"
     SCATTER_CHART = "Scatter Plot"
+    SCATTER_MATRIX_CHART = "Scatter Plot Matrix"
