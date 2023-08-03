@@ -22,6 +22,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.HEAT_MAP_CHART.value:
         return plot_heat_map_chart(dataset, target, variables)
 
+    if diagram_name == Chart.DENSITY_CHART.value:
+        return plot_density_chart(dataset, target, variables)
+
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -139,6 +142,46 @@ def plot_heat_map_chart(dataset, target, variables):
     layout = go.Layout(
         title='Heatmap',
         hovermode='closest'
+    )
+
+    # Create the figure with the trace and layout
+    fig = go.Figure(data=[trace], layout=layout)
+
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_density_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+
+    # Get the latitude, longitude, and density values from the chosen columns
+    latitude_values = df[variables[0]].values
+    longitude_values = df[variables[1]].values
+    density_values = df[target].values
+
+    # Create the trace for the density map
+    trace = go.Densitymapbox(
+        lat=latitude_values,
+        lon=longitude_values,
+        z=density_values,
+        radius=10,
+        hoverinfo='text',
+        text=df[target]
+    )
+
+    # Create the layout for the map
+    layout = go.Layout(
+        title='Density Map',
+        mapbox=dict(
+            style='stamen-terrain',  # You can choose other map styles as well
+            center=dict(
+                lat=latitude_values.mean(),
+                lon=longitude_values.mean()
+            ),
+            zoom=10
+        )
     )
 
     # Create the figure with the trace and layout

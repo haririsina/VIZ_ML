@@ -8,3 +8,4 @@ class Chart(Enum):
     STACKED_AREA_CHART = "Stacked Line Chart"
     DOT_LINE_CHART = "Dot Line Chart"
     HEAT_MAP_CHART = "Heat Map Chart"
+    DENSITY_CHART = "Density Chart"

@@ -153,3 +153,5 @@ DEFAULT_TZ = pytz.timezone("Asia/Tehran")
 AUTH_USER_MODEL = 'account.CustomUser'
 
 X_FRAME_OPTIONS = 'ALLOWALL'
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
