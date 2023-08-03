@@ -27,6 +27,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
 
     if diagram_name == Chart.BUBBLE_CHART.value:
         return plot_bubble_chart(dataset, target, variables)
+    
+    if diagram_name == Chart.SCATTER_CHART.value:
+        return plot_scatter_chart(dataset, target, variables)
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -227,6 +230,21 @@ def plot_bubble_chart(dataset, target, variables):
 
     # Create the figure with the trace and layout
     fig = go.Figure(data=[trace], layout=layout)
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_scatter_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+    fig = px.scatter(
+        data_frame=df,
+        x=variables[0],
+        y=variables[1],
+        color=target,
+        symbol=target
+    )
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
     return file_name
