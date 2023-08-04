@@ -19,3 +19,4 @@ class Chart(Enum):
     TREEMAP_CHART = "Treemap"
     HISTOGRAM_CHART = "Histogram"
     RADAR_CHART = "Radar"
+    CLUSTERED_BAR_CHART = "Clustered Bar Chart"
