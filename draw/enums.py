@@ -13,3 +13,4 @@ class Chart(Enum):
     SCATTER_CHART = "Scatter Plot"
     SCATTER_MATRIX_CHART = "Scatter Plot Matrix"
     PARALLEL_COORDINATES_CHART = "Parallel Coordinates Plot"
+    BAR_CHART = "Bar Chart"
