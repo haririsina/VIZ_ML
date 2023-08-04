@@ -46,6 +46,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.TREEMAP_CHART.value:
         return plot_treemap_chart(dataset, target, variables)
 
+    if diagram_name == Chart.HISTOGRAM_CHART.value:
+        return plot_histogram_chart(dataset, variables)
+
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -301,6 +304,15 @@ def plot_treemap_chart(dataset, target, variables):
     )
     fig.update_layout(margin=dict(t=50, l=25, r=25, b=25))
 
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_histogram_chart(dataset, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+    fig = px.histogram(df, x=variables[0], color=variables[1] if len(variables) > 1 else None)
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
     return file_name

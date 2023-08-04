@@ -17,3 +17,4 @@ class Chart(Enum):
     STACKED_BAR_CHART = "Stacked Bar Chart"
     TABLE_CHART = "Table"
     TREEMAP_CHART = "Treemap"
+    HISTOGRAM_CHART = "Histogram"
