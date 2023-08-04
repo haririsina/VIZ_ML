@@ -46,6 +46,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.TABLE_CHART.value:
         return plot_table_chart(dataset, target, variables)
 
+    if diagram_name == Chart.TREEMAP_CHART.value:
+        return plot_treemap_chart(dataset, target, variables)
+
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
@@ -344,6 +347,26 @@ def plot_table_chart(dataset, target, variables):
             )
         ]
     )
+
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+def plot_treemap_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+
+    variables.insert(0, px.Constant(""))
+    values = variables.pop()
+
+    fig = px.treemap(
+        df, 
+        path=variables, 
+        values=values,
+        color=target
+    )
+    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+
 
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
