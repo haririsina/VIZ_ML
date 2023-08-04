@@ -11,7 +11,7 @@ def pen(diagram_name, dataset, target, variables) -> str:
         return plot_line_chart(dataset, target, variables)
 
     if diagram_name == Chart.AREA_CHART.value or diagram_name == Chart.STACKED_AREA_CHART.value:
-        return plot_stacked_area_chart(dataset, target, variables)
+        return plot_area_chart(dataset, target, variables)
 
     if diagram_name == Chart.DOT_LINE_CHART.value:
         return plot_dot_line_chart(dataset, target, variables)
@@ -55,7 +55,7 @@ def plot_line_chart(dataset, target, variables) -> str:
     fig.write_html(f"media/{file_name}")
     return file_name
 
-def plot_stacked_area_chart(dataset, target, variables) -> str:
+def plot_area_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
 
