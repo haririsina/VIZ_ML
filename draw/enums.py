@@ -15,3 +15,4 @@ class Chart(Enum):
     PARALLEL_COORDINATES_CHART = "Parallel Coordinates Plot"
     BAR_CHART = "Bar Chart"
     STACKED_BAR_CHART = "Stacked Bar Chart"
+    TABLE_CHART = "Table"

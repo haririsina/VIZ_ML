@@ -43,6 +43,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.STACKED_BAR_CHART.value:
         return plot_stacked_bar_chart(dataset, target, variables)
 
+    if diagram_name == Chart.TABLE_CHART.value:
+        return plot_table_chart(dataset, target, variables)
+
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
@@ -315,6 +318,31 @@ def plot_stacked_bar_chart(dataset, target, variables):
         x=variables[0], 
         y=target,
         color=variables[1]
+    )
+
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_table_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+    table_header = dict(values=variables + [target])
+    table_cells = []
+
+    for v in variables:
+        table_cells.append(df[v].values)
+
+    table_cells.append(df[target].values)
+
+    fig = go.Figure(
+        data=[
+            go.Table(
+                header=table_header,
+                cells=dict(values=table_cells)
+            )
+        ]
     )
 
     file_name = f"{uuid.uuid4()}.html"
