@@ -18,3 +18,4 @@ class Chart(Enum):
     TABLE_CHART = "Table"
     TREEMAP_CHART = "Treemap"
     HISTOGRAM_CHART = "Histogram"
+    RADAR_CHART = "Radar"

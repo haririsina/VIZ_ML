@@ -49,6 +49,9 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.HISTOGRAM_CHART.value:
         return plot_histogram_chart(dataset, variables)
 
+    if diagram_name == Chart.RADAR_CHART.value:
+        return plot_radar_chart(dataset, target, variables)
+
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -313,6 +316,16 @@ def plot_histogram_chart(dataset, variables):
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
     fig = px.histogram(df, x=variables[0], color=variables[1] if len(variables) > 1 else None)
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
+
+def plot_radar_chart(dataset, target, variables):
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+    fig = px.line_polar(df, r=target, theta=variables[0])
+    fig.update_traces(fill='toself')
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
     return file_name
