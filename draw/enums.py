@@ -21,3 +21,4 @@ class Chart(Enum):
     RADAR_CHART = "Radar"
     CLUSTERED_BAR_CHART = "Clustered Bar Chart"
     PIE_CHART = "Pie Chart"
+    NETWORK_CHART = "Network"
