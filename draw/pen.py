@@ -55,6 +55,18 @@ def pen(diagram_name, dataset, target, variables) -> str:
     if diagram_name == Chart.CLUSTERED_BAR_CHART.value:
         return plot_stacked_bar_chart(dataset, target, variables, barmode='group')
 
+    if diagram_name == Chart.PIE_CHART.value:
+        return plot_pie_chart(dataset, target, variables)
+
+
+def plot_pie_chart(dataset, target, variables) -> str:
+    data = StringIO(dataset)
+    df = pd.read_csv(data, sep=",")
+    fig = px.pie(df, values=target, names=variables[0])
+    file_name = f"{uuid.uuid4()}.html"
+    fig.write_html(f"media/{file_name}")
+    return file_name
+
 
 def plot_line_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
@@ -63,6 +75,7 @@ def plot_line_chart(dataset, target, variables) -> str:
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
     return file_name
+
 
 def plot_area_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)

@@ -20,3 +20,4 @@ class Chart(Enum):
     HISTOGRAM_CHART = "Histogram"
     RADAR_CHART = "Radar"
     CLUSTERED_BAR_CHART = "Clustered Bar Chart"
+    PIE_CHART = "Pie Chart"
