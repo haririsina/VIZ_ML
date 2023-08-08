@@ -26,8 +26,8 @@ input_dataset.onchange = (e) => {
         return
     }
 
-    if (file.size / 1000000 > 20) {
-        dialog(true, "خطا", "حجم فایل بایستی کم تر از 20 مگابایت باشد")
+    if (file.size / 1000000 > 10) {
+        dialog(true, "خطا", "حجم فایل بایستی کم تر از 10 مگابایت باشد")
         input_dataset.value = ""
         return
     }
