@@ -136,14 +136,12 @@ button:hover {
     display: flex;
     height: 100%;
     width: 100%;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .upload_file_container {
     flex: 1;
-    height: calc(100% - 4em);
     border: 1px dashed var(--main-color);
     border-radius: 1em;
     display: flex;
@@ -169,7 +167,6 @@ button:hover {
     flex-direction: column;
     align-items: flex-start;
     margin-left: 2em;
-    height: calc(100% - 4em);
 }
 
 .tip_item {

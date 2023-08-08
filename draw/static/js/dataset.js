@@ -1,8 +1,16 @@
 const upload_dataset_container = document.querySelector(".upload_file_container")
 const input_dataset = document.querySelector("#choose_dataset_input")
+const back_to_diagrams = document.querySelector("#back_to_diagrams")
+
 
 let dataset_data
 let dataset_columns_titles = ['Date', 'AveragePrice', 'Total Volume', 'Small Hass', 'Large Hass', 'XL Hass', 'Total Bags', 'Small Bags', 'Large Bags', 'XLarge Bags', 'Type', 'Year', 'Region']
+
+
+
+back_to_diagrams.onclick = () => {
+    navigateTo(SECTION_SELECT_DIAGRAM)
+}
 
 upload_dataset_container.onclick = () => {
     input_dataset.click()

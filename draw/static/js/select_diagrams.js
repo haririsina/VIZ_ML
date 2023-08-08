@@ -17,19 +17,11 @@ const DIAGRAM_PIE_CHART = "diagram_pie_chart"
 const DIAGRAM_RADAR = "diagram_radar"
 
 
-const back_to_dataset = document.querySelector("#back_to_dataset")
 
 let selected_diagram
 
-
-back_to_dataset.onclick = () => {
-    navigateTo(SECTION_SELECT_DATASET)
-}
-
 const on_digram_clicked = (elmnt) => {
-    loading(true, "لطفا صبر کنید...")
     selected_diagram = elmnt.getAttribute("id")
-    section_select_diagram.style.display = "none"
-    section_select_fields.style.display = "flex"
-    load_dataset_fields()
+    navigateTo(SECTION_SELECT_DATASET)
+    // load_dataset_fields()
 }
