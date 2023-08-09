@@ -54,6 +54,7 @@ dialog_wrapper.onclick = (e) => {
 const navigateTo = section_name => {
     switch(section_name) {
         case SECTION_SELECT_DATASET:
+            check_tip_four_status()
             section_select_diagram.style.display = "none"
             section_select_dataset.style.display = "flex"
             break

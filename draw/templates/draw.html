@@ -57,7 +57,7 @@
                     <p>نمودار طرح پراکنده</p>
                     <img src="{% static 'imgs/preview_scatter.png' %}"/>
                 </div>
-                <div class="digram_item_container" id="Scattwe_Plot_Matrix" onclick="on_digram_clicked(this)">
+                <div class="digram_item_container" id="Scatter_Plot_Matrix" onclick="on_digram_clicked(this)">
                     <p>نمودار طرح پراکنده ماتریسی</p>
                     <img src="{% static 'imgs/preview_scatter_matrix.png' %}"/>
                 </div>
@@ -144,7 +144,7 @@
                             <p>نکته 1:</p>
                         </div>
                         <p class="tip_item_content">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ می باشد
+                            پسوند فایل باید csv یا xlsx باشد.
                         </p>
                     </div>
                     <div class="tip_item">
@@ -153,7 +153,7 @@
                             <p>نکته 2:</p>
                         </div>
                         <p class="tip_item_content">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ می باشد                        
+                            در فایل های csv بایستی ستون ها  با کاراکتر "," از یکدیگر جدا شده باشند
                         </p>
                     </div>
                     <div class="tip_item">
@@ -162,16 +162,15 @@
                             <p>نکته 3:</p>
                         </div>
                         <p class="tip_item_content">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ می باشد                        
+                            حجم فایل باید کم تر از 10 مگابایت باشد                      
                         </p>
                     </div>
-                    <div class="tip_item">
+                    <div class="tip_item" id="tip_four" style="display: none;"> 
                         <div class="tip_item_title">
                             <i class="fi fi-rr-bulb"></i>
                             <p>نکته 4:</p>
                         </div>
                         <p class="tip_item_content">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ می باشد                        
                         </p>
                     </div>
                 </div>

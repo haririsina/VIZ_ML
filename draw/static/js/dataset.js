@@ -1,12 +1,21 @@
 const upload_dataset_container = document.querySelector(".upload_file_container")
 const input_dataset = document.querySelector("#choose_dataset_input")
 const back_to_diagrams = document.querySelector("#back_to_diagrams")
+const tip_four = document.querySelector("#tip_four")
 
 
 let dataset_data
 let dataset_columns_titles = ['Date', 'AveragePrice', 'Total Volume', 'Small Hass', 'Large Hass', 'XL Hass', 'Total Bags', 'Small Bags', 'Large Bags', 'XLarge Bags', 'Type', 'Year', 'Region']
 
-
+function check_tip_four_status() {
+    if (selected_diagram == DIAGRAM_NETWORK) {
+        tip_four.style.display = "block"
+        tip_four.querySelector(".tip_item_content").innerText = 'دیتاست شما بایستی شامل ستون های "ابتدای یال"، "انتهای یال"، "نام گره"، "موقعیت گره در محور x" و "موقعیت گره در محور y" باشد.'
+    } else {
+        tip_four.style.display = "none"
+        tip_four.querySelector(".tip_item_content").innerText = ""
+    }
+}
 
 back_to_diagrams.onclick = () => {
     navigateTo(SECTION_SELECT_DIAGRAM)
