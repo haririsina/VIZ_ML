@@ -218,8 +218,8 @@ def plot_scatter_chart(dataset, target, variables):
         data_frame=df,
         x=variables[0],
         y=target,
-        color=variables[1],
-        symbol=variables[1]
+        color=variables[1] if len(variables) > 1 else None,
+        symbol=variables[1] if len(variables) > 1 else None
     )
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
