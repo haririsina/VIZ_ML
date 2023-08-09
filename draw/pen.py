@@ -84,7 +84,7 @@ def plot_area_chart(dataset, target, variables) -> str:
     data = StringIO(dataset)
     df = pd.read_csv(data, sep=",")
 
-    fig = px.area(df, x=variables[0], y=target, color=variables[1])
+    fig = px.area(df, x=variables[0], y=target, color=variables[1] if len(variables) > 1 else None)
 
     file_name = f"{uuid.uuid4()}.html"
     fig.write_html(f"media/{file_name}")
