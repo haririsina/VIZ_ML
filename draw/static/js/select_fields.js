@@ -165,7 +165,7 @@ function send_diagram_data() {
                 show_diagram(j.url)
                 loading(false)
             } else {
-                dialog(true, "خطا", j.err_msg)
+                dialog(true, "خطا در رسم نمودار", "لطفا ساختاری دیتاست و فیلد های انتخابی خود را بررسی کنید.")
             }
         })
     })
