@@ -14,6 +14,8 @@ const section_select_fields = document.querySelector("#section_select_fields")
 const loading_container = document.querySelector(".loading_container")
 const loading_text = document.querySelector(".loading_text")
 
+const _btn_back_to_dashboard = document.querySelector("#_back_to_dashboard")
+
 let loading = (show, hint = "") => {
     let loading_display = show ? "flex" : "none"
 
@@ -57,6 +59,7 @@ const navigateTo = section_name => {
         case SECTION_SELECT_DATASET:
             check_tip_four_status()
             section_select_diagram.style.display = "none"
+            section_select_fields.style.display = "none"
             section_select_dataset.style.display = "flex"
             break
         case SECTION_SELECT_DIAGRAM:
@@ -69,4 +72,8 @@ const navigateTo = section_name => {
             section_select_fields.style.display = "flex"
             break
     }
+}
+
+_btn_back_to_dashboard.onclick = () => {
+    window.location.replace("http://127.0.0.1:8000/panel")
 }

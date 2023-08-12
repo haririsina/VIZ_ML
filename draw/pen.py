@@ -7,6 +7,9 @@ from io import StringIO
 
 
 def pen(diagram_name, dataset, target, variables) -> str:
+    if dataset.startswith("ï»¿"):
+        dataset = dataset.replace("ï»¿", "")
+
     if diagram_name == Chart.LINE_CHART.value or diagram_name == Chart.STACKED_LINE_CHART.value:
         return plot_line_chart(dataset, target, variables)
 

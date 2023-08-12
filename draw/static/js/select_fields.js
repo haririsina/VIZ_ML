@@ -2,6 +2,7 @@ const fields_container = document.querySelector("#fields_container")
 const field_item_sample = document.querySelector(".field_container.sample")
 const question_container_field_type = document.querySelector(".question_container .field_type span")
 const btn_submit_fields = document.querySelector("#btn_submit_fields")
+const btn_back_to_dataset = document.querySelector("#back_to_dataset")
 
 let dataset_target 
 let dataset_variables = []
@@ -160,13 +161,25 @@ function send_diagram_data() {
         method: 'POST',
         body: formData
     }).then(r => {
+        loading(false)
         r.json().then(j => {
-            if (r.status == 200) {
+            if (r.status == 200 && !j.url.endsWith("None")) {
                 show_diagram(j.url)
-                loading(false)
             } else {
                 dialog(true, "خطا در رسم نمودار", "لطفا ساختاری دیتاست و فیلد های انتخابی خود را بررسی کنید.")
             }
+        }).catch(e => {
+            dialog(true, "خطا در رسم نمودار", "لطفا ساختاری دیتاست و فیلد های انتخابی خود را بررسی کنید.")
         })
     })
+}
+
+btn_back_to_dataset.onclick = () => {
+    btn_submit_fields.style.display = 'none'
+    dataset_target = undefined
+    dataset_variables = []
+    document.querySelectorAll(".field_container:not(sample)").forEach(elmnt => {
+        elmnt.remove()
+    })
+    navigateTo(SECTION_SELECT_DATASET)
 }

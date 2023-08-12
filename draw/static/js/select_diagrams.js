@@ -1,6 +1,6 @@
 const DIAGRAM_LINE_CHART = "Line_Chart"
 const DIAGRAM_STACKED_LINE_CHART = "Stacked_Line_Chart"
-const DIAGRAM_SCATTER = "Scatter_plot"
+const DIAGRAM_SCATTER = "Scatter_Plot"
 const DIAGRAM_SCATTER_MATRIX = "Scatter_Plot_Matrix"
 const DIAGRAM_AREA_CHART = "Area_Chart"
 const DIAGRAM_STACKED_AREA_CHART = "Stacked_Area_Chart"
