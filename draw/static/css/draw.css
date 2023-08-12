@@ -333,12 +333,8 @@ button:hover {
     text-align: center;
 }
 
-.question_container .target span {
+.question_container span {
     color: var(--dataset-target-color);
-}
-
-.question_container .variable span {
-    color: var(--dataset-variable-color);
 }
 
 .field_container {
@@ -382,13 +378,13 @@ button:hover {
 .field_container .label_variable {
     background-color: var(--dataset-variable-color);
     border-radius: 4px;
-    font-size: .6em;
     padding: 4px 8px;
     margin: 0 1em;
     display: none;
 }
 
-.field_container .label_variable p {
+.field_container .label_variable  {
+    font-family: yekan;
     color: white;
 }
 

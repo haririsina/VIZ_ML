@@ -1,7 +1,6 @@
 const fields_container = document.querySelector("#fields_container")
 const field_item_sample = document.querySelector(".field_container.sample")
-const question_container_target = document.querySelector(".question_container .target")
-const question_container_variable = document.querySelector(".question_container .variable")
+const question_container_field_type = document.querySelector(".question_container .field_type span")
 const btn_submit_fields = document.querySelector("#btn_submit_fields")
 
 let dataset_target 
@@ -17,10 +16,22 @@ const load_dataset_fields = () => {
         )
     })
 
+    switch (selected_diagram) {
+        case DIAGRAM_SCATTER_MATRIX:
+            question_container_field_type.innerText = "هدف (اختیاری)"
+            btn_submit_fields.style.display = "block"
+            break
+        case DIAGRAM_HISTOGRAM:
+        case DIAGRAM_NETWORK:
+            question_container_field_type.innerText = "متغیر 1"
+            break
+        default:
+            question_container_field_type.innerText = "هدف"
+    }
+
     loading(false)
 }
 
-load_dataset_fields()
 
 const on_field_clicked = (elmnt) => {
     let elmnt_title = elmnt.querySelector("p")
@@ -31,53 +42,98 @@ const on_field_clicked = (elmnt) => {
     if (!selected) {
         elmnt.classList.add('selected')
 
-        if (!dataset_target) {
+        if (!dataset_target && selected_diagram != DIAGRAM_SCATTER_MATRIX && selected_diagram != DIAGRAM_HISTOGRAM && selected_diagram != DIAGRAM_NETWORK) {
             label_target.style.display = "block"
             dataset_target = elmnt_title.innerText
-            question_container_target.style.display = "none"
-            question_container_variable.style.display = "block"
         } else {
-            label_variable.style.display = "block"
             dataset_variables.push(elmnt_title.innerText)
+            label_variable.innerText = "متغیر" + dataset_variables.length
+            label_variable.style.display = "block"
+            label_variable.setAttribute("data-var-num", dataset_variables.length)
         }
+
+        question_container_field_type.innerText = "متغیر" + (dataset_variables.length + 1)
     } else {
         elmnt.classList.remove('selected')
 
         if (label_target.style.display != "none" && label_target.style.display != "") {
             label_target.style.display = "none"
             dataset_target = undefined
-            question_container_target.style.display = "block"
-            question_container_variable.style.display = "none"
+            question_container_field_type.innerText = "هدف"
         } else if (label_variable.style != "none") {
             label_variable.style.display = "none"
             dataset_variables.splice(
                 dataset_variables.indexOf(elmnt_title.innerText), 1
             )
+            document.querySelectorAll("[data-var-num]").forEach(item => {
+                item.setAttribute("data-var-num", parseInt(item.getAttribute("data-var-num")) - 1)
+                item.innerText = "متغیر" + item.getAttribute("data-var-num")
+            })
+            question_container_field_type.innerText = "متغیر" + (dataset_variables.length + 1)
         }
     }
 
     switch(selected_diagram) {
-        case DIAGRAM_LINE_CHART:
-        case DIAGRAM_AREA_CHART:
+        case DIAGRAM_PIE_CHART:
+        case DIAGRAM_RADAR:
             if (dataset_target && dataset_variables.length == 1) {
                 send_diagram_data()
             }
             break
+        case DIAGRAM_LINE_CHART:
         case DIAGRAM_STACKED_LINE_CHART:
+        case DIAGRAM_AREA_CHART:
+        case DIAGRAM_STACKED_AREA_CHART:
+        case DIAGRAM_DOT_AND_LINE_CHART:
+        case DIAGRAM_SCATTER:
+        case DIAGRAM_BAR_CHART:
+        case DIAGRAM_STACKED_BAR_CHART:
+        case DIAGRAM_CLUSTERED_BAR_CHART:
             if (dataset_target && dataset_variables.length == 2) {
                 send_diagram_data()
-            }
-            break
-        case DIAGRAM_STACKED_AREA_CHART:
-            if (dataset_target && dataset_variables.length > 0) {
+            } else if (dataset_target && dataset_variables.length == 1) {
                 btn_submit_fields.style.display = "block"
             } else {
                 btn_submit_fields.style.display = "none"
             }
             break
+        case DIAGRAM_HEAT_MAP:
+        case DIAGRAM_DENSITY_PLOT:
+        case DIAGRAM_BUBBLE_CHART:
+            if (dataset_target && dataset_variables.length == 2) {
+                send_diagram_data()
+            }
+            break
+        case DIAGRAM_HISTOGRAM:
+            if (dataset_variables.length == 2) {
+                send_diagram_data()
+            } else if (dataset_variables.length == 1) {
+                btn_submit_fields.style.display = "block"
+            } else {
+                btn_submit_fields.style.display = "none"
+            }
+            break
+        case DIAGRAM_SCATTER_MATRIX:
+        case DIAGRAM_PARALLEL_COORDINATES:
+            if (dataset_variables.length >= 2) {
+                btn_submit_fields.style.display = "block"
+            } else {
+                btn_submit_fields.style.display = "none"
+            }
+            break
+        case DIAGRAM_TABLE:
+        case DIAGRAM_TREEMAP:
+            if (dataset_variables.length >= 1) {
+                btn_submit_fields.style.display = "block"
+            } else {
+                btn_submit_fields.style.display = "none"
+            }
+            break
+        case DIAGRAM_NETWORK:
+            if (dataset_variables.length == 5) {
+                send_diagram_data()
+            }
     }
-
-    
 }
 
 btn_submit_fields.onclick = () => {

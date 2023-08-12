@@ -14,9 +14,12 @@ const jsonToCsv = (json_data) => {
     
         json_data.forEach(line => {
             json_keys.forEach(key => {
-                result += line[key] + ","
+                result += line[key] 
+                if (json_keys.indexOf(key) != json_keys.length - 1) {
+                    result += ","
+                }
+
             })
-            
             result += "\n"
         })
     

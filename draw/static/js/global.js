@@ -1,5 +1,6 @@
 const SECTION_SELECT_DATASET = "section_select_dataset"
 const SECTION_SELECT_DIAGRAM = "section_select_diagram"
+const SECTION_SELECT_FIELDS = "section_select_fields"
 
 const dialog_wrapper = document.querySelector(".dialog_wrapper")
 const container = document.querySelector("#container")
@@ -61,6 +62,11 @@ const navigateTo = section_name => {
         case SECTION_SELECT_DIAGRAM:
             section_select_dataset.style.display = "none"
             section_select_diagram.style.display = "flex"
+            break
+        case SECTION_SELECT_FIELDS:
+            load_dataset_fields()
+            section_select_dataset.style.display = "none"
+            section_select_fields.style.display = "flex"
             break
     }
 }

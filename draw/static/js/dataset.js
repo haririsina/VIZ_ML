@@ -72,7 +72,7 @@ input_dataset.onchange = (e) => {
         if (dataset_data == "Error") {
             dialog(true, "خطا", "ساختار فایل صحیح نمی باشد")
         } else {
-            navigateTo(SECTION_SELECT_DIAGRAM)
+            navigateTo(SECTION_SELECT_FIELDS)
         }
     }
 
