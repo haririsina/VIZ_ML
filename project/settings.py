@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'knox',
     'account',
     'panel',
-    'draw'
+    'draw',
+    'recommend'
 ]
 
 MIDDLEWARE = [
