@@ -1,0 +1,532 @@
+{
+  "0": {
+    "phrase": "Do you know what your main task is?",
+    "yes_node": 1,
+    "no_node": 2
+  },
+  "1": {
+    "phrase": "Is your main task to analyse a specific data feature?",
+    "yes_node": 3,
+    "no_node": 5
+  },
+  "2": {
+    "phrase": "Is your data statistical?",
+    "yes_node": 4,
+    "no_node": 6
+  },
+  "6": {
+    "phrase": "Is your data temporal?",
+    "yes_node": 52,
+    "no_node": 54
+  },
+  "54": {
+    "phrase": "Is your data geospatial?",
+    "yes_node": 80,
+    "no_node": "Table"
+  },
+  "80": {
+    "phrase": "Do you want to show location only?",
+    "yes_node": "Dot Map",
+    "no_node": 82
+  },
+  "82": {
+    "phrase": "Do you want to show how locations are connected between each other?",
+    "yes_node": 84,
+    "no_node": 86
+  },
+  "84": {
+    "phrase": "Do you want to show flow?",
+    "yes_node": "Flow Map",
+    "no_node": "Connection Map"
+  },
+  "86": {
+    "phrase": "Do you want to show a value in relation to the location?",
+    "yes_node": "Proportional Symbol Map",
+    "no_node": 88
+  },
+  "88": {
+    "phrase": "Does it need to be geographically realistic?",
+    "yes_node": "Choropleth Map",
+    "no_node": "Cartogram"
+  },
+  "52": {
+    "phrase": "Is it a series of events over time",
+    "yes_node": "Timeline",
+    "no_node": 56
+  },
+  "56": {
+    "phrase": "Does your data compare something over time?",
+    "yes_node": 58,
+    "no_node": 60
+  },
+  "60": {
+    "phrase": "Is your data about relationships over time?",
+    "yes_node": 70,
+    "no_node": 72
+  },
+  "72": {
+    "phrase": "Is your data about the composition of something over time?",
+    "yes_node": 74,
+    "no_node": 76
+  },
+  "76": {
+    "phrase": "Is your data about something else over time?",
+    "yes_node": "Small Multiples",
+    "no_node": "Table"
+  },
+  "74": {
+    "phrase": "Do you have a lot of time periods?",
+    "yes_node": 78,
+    "no_node": "Stacked Bar Chart"
+  },
+  "78": {
+    "phrase": "Do you want to emphasise the trend?",
+    "yes_node": "Stacked Line Chart",
+    "no_node": "Stacked Area Chart"
+  },
+  "70": {
+    "phrase": "Do you want to show relationships between more than two variables?",
+    "yes_node": 66,
+    "no_node": "Scatter Plot"
+  },
+  "66": {
+    "phrase": "Do you need three dimensions?",
+    "yes_node": "Bubble Chart",
+    "no_node": 68
+  },
+  "68": {
+    "phrase": "Do you want to show everything in one plot?",
+    "yes_node": "Parallel Coordinates Plot",
+    "no_node": "Scatterplot Matrix"
+  },
+  "58": {
+    "phrase": "Do you have exactly 2 time periods?",
+    "yes_node": "Slopegraph",
+    "no_node": 62
+  },
+  "62": {
+    "phrase": "Do you want to emphasise the overall trend?",
+    "yes_node": 64,
+    "no_node": "Bar Chart"
+  },
+  "64": {
+    "phrase": "Do you want to emphasise each time point?",
+    "yes_node": "Connected Dot Plot",
+    "no_node": "Line Chart"
+  },
+  "4": {
+    "phrase": "Do you want to compare?",
+    "yes_node": 8,
+    "no_node": 10
+  },
+  "8": {
+    "phrase": "Do you want to compare change over time?",
+    "yes_node": 22,
+    "no_node": 24
+  },
+  "24": {
+    "phrase": "Do you want to compare quantities?",
+    "yes_node": 30,
+    "no_node": 32
+  },
+  "32": {
+    "phrase": "Do you want to compare proportions?",
+    "yes_node": 40,
+    "no_node": 42
+  },
+  "42": {
+    "phrase": "Do you want to compare something else?",
+    "yes_node": "Small Multiples",
+    "no_node": "###"
+  },
+  "40": {
+    "phrase": "Do you want to compare proportions over time?",
+    "yes_node": 44,
+    "no_node": 46
+  },
+  "46": {
+    "phrase": "Is there hierarchy?",
+    "yes_node": "Treemap",
+    "no_node": 50
+  },
+  "50": {
+    "phrase": "Are there more than 7 categories?",
+    "yes_node": "Bar Chart",
+    "no_node": "Pie Chart"
+  },
+  "44": {
+    "phrase": "Do you have a lot of time periods?",
+    "yes_node": 48,
+    "no_node": "Stacked Bar Chart"
+  },
+  "48": {
+    "phrase": "Do you want to emphasise the trend?",
+    "yes_node": "Stacked Line Chart",
+    "no_node": "Stacked Area Chart"
+  },
+  "30": {
+    "phrase": "Do you have more than one category?",
+    "yes_node": 34,
+    "no_node": 36
+  },
+  "36": {
+    "phrase": "Do you have more than one variable?",
+    "yes_node": "Radar Plot",
+    "no_node": 38
+  },
+  "34": {
+    "phrase": "Do you have many categories?",
+    "yes_node": "Small Multiples",
+    "no_node": 38
+  },
+  "38": {
+    "phrase": "Do you have more than one data series within each category?",
+    "yes_node": "Clustered Bar Chart",
+    "no_node": "Bar Chart"
+  },
+  "22": {
+    "phrase": "Do you have exactly 2 time periods?",
+    "yes_node": "Slope Graph",
+    "no_node": 26
+  },
+  "26": {
+    "phrase": "Do you want to emphasise the overall trend?",
+    "yes_node": 28,
+    "no_node": "Bar Chart"
+  },
+  "28": {
+    "phrase": "Do you want to emphasise each time point?",
+    "yes_node": "Connected Dot Plot",
+    "no_node": "Line Chart"
+  },
+  "14": {
+    "phrase": "Do you want to show the distribution?",
+    "yes_node": 20,
+    "no_node": "Table"
+  },
+  "20": {
+    "phrase": "Do you want to emphasise the shape of the distribution?",
+    "yes_node": "Density Plot",
+    "no_node": "Histogram"
+  },
+  "12": {
+    "phrase": "Do you want to analyse correlations between more than two variables at a time?",
+    "yes_node": 16,
+    "no_node": "Scatter Plot"
+  },
+  "16": {
+    "phrase": "Do you want to show three dimensions?",
+    "yes_node": "Bubble Chart",
+    "no_node": 18
+  },
+  "18": {
+    "phrase": "Do you want to show many variables at once?",
+    "yes_node": "Parallel Coordinates Plot",
+    "no_node": "Scatterplot Matrix"
+  },
+  "3": {
+    "phrase": "Do you want to analyse trends over time?",
+    "yes_node": 7,
+    "no_node": 9
+  },
+  "7": {
+    "phrase": "Do you want to analyse trends of more than one variable?",
+    "yes_node": 11,
+    "no_node": 13
+  },
+  "13": {
+    "phrase": "Do you want to emphasise the trend line?",
+    "yes_node": "Line Chart",
+    "no_node": "Scatter Plot"
+  },
+  "11": {
+    "phrase": "Do you want everything in one graph?",
+    "yes_node": "Stacked Line Chart",
+    "no_node": "Scatter Plot Matrix"
+  },
+  "9": {
+    "phrase": "Do you want to analyse correlations?",
+    "yes_node": 23,
+    "no_node": 25
+  },
+  "23": {
+    "phrase": "Do you want to analyse correlations between more than two variables at a time?",
+    "yes_node": 27,
+    "no_node": "Scatter Plot"
+  },
+  "27": {
+    "phrase": "Do you need three dimensions?",
+    "yes_node": "Bubble Chart",
+    "no_node": 33
+  },
+  "33": {
+    "phrase": "Do you want to show everything in one graph?",
+    "yes_node": "Parallel Coordinates Plot",
+    "no_node": "Scatterplot Matrix"
+  },
+  "25": {
+    "phrase": "Do you want to analyse distribution?",
+    "yes_node": 39,
+    "no_node": 41
+  },
+  "39": {
+    "phrase": "Is your data spatial?",
+    "yes_node": 43,
+    "no_node": 45
+  },
+  "43": {
+    "phrase": "Do you want to work with the raw data?",
+    "yes_node": "Dot Map",
+    "no_node": "Choropleth Map"
+  },
+  "45": {
+    "phrase": "Do you want to emphasise the shape of the distribution?",
+    "yes_node": "Density Plot",
+    "no_node": "Histogram"
+  },
+  "41": {
+    "phrase": "Do you want to analyse patterns?",
+    "yes_node": 61,
+    "no_node": 63
+  },
+  "63": {
+    "phrase": "Do you want to analyse clusters?",
+    "yes_node": 77,
+    "no_node": "Table"
+  },
+  "65": {
+    "phrase": "Do you want to show a pattern of connections between places?",
+    "yes_node": "Connection Map",
+    "no_node": 71
+  },
+  "71": {
+    "phrase": "Do you want to show a pattern of specific locations?",
+    "yes_node": "Dot Map",
+    "no_node": "Choropleth Map"
+  },
+  "77": {
+    "phrase": "Does your data show connections?",
+    "yes_node": "Network",
+    "no_node": 83
+  },
+  "83": {
+    "phrase": "Do you have more than two variables?",
+    "yes_node": 85,
+    "no_node": "Scatter Plot"
+  },
+  "85": {
+    "phrase": "Do you want everything in one graph?",
+    "yes_node": "Heat Map",
+    "no_node": "Scatter Plot Matrix"
+  },
+  "5": {
+    "phrase": "Is your main task to compare?",
+    "yes_node": 93,
+    "no_node": 95
+  },
+  "93": {
+    "phrase": "Do you want to compare change over time?",
+    "yes_node": 97,
+    "no_node": 99
+  },
+  "97": {
+    "phrase": "Do you want to show exactly 2 time periods?",
+    "yes_node": "Slopegraph",
+    "no_node": 103
+  },
+  "103": {
+    "phrase": "Do you want to emphasise the overall trend?",
+    "yes_node": 105,
+    "no_node": "Bar Chart"
+  },
+  "105": {
+    "phrase": "Do you want to emphasise data point?",
+    "yes_node": "Dot and line chart",
+    "no_node": "Line Chart"
+  },
+  "99": {
+    "phrase": "Do you want to compare quantities?",
+    "yes_node": 115,
+    "no_node": 117
+  },
+  "115": {
+    "phrase": "Do you want to show exactly one category?",
+    "yes_node": 119,
+    "no_node": 121
+  },
+  "119": {
+    "phrase": "Do you want to show more than one variable?",
+    "yes_node": "Radar Plot",
+    "no_node": 125
+  },
+  "125": {
+    "phrase": "Do you want to show more than one data series within each category?",
+    "yes_node": "Clustered Bar Chart",
+    "no_node": "Bar Chart"
+  },
+  "121": {
+    "phrase": "Do you want to show many categories?",
+    "yes_node": "Small Multiples",
+    "no_node": 133
+  },
+  "133": {
+    "phrase": "Do you want to show more than one data series within each category?",
+    "yes_node": "Clustered Bar Chart",
+    "no_node": "Bar Chart"
+  },
+  "117": {
+    "phrase": "Do you want to compare proportions?",
+    "yes_node": 139,
+    "no_node": 141
+  },
+  "141": {
+    "phrase": "Do you want to compare something else?",
+    "yes_node": "Small Multiples",
+    "no_node": "Table"
+  },
+  "139": {
+    "phrase": "Do you want to compare proportions over time?",
+    "yes_node": 147,
+    "no_node": 149
+  },
+  "147": {
+    "phrase": "Do you want to show many time periods?",
+    "yes_node": 151,
+    "no_node": "Stacked Bar Chart"
+  },
+  "151": {
+    "phrase": "Do you want to emphasise the trend?",
+    "yes_node": "Stacked Line Chart",
+    "no_node": "Stacked Area Chart"
+  },
+  "149": {
+    "phrase": "Do you want to show hierarchy?",
+    "yes_node": "Treemap",
+    "no_node": 161
+  },
+  "161": {
+    "phrase": "Do you want to show more than 7 categories?",
+    "yes_node": "Bar Chart",
+    "no_node": "Pie Chart"
+  },
+  "95": {
+    "phrase": "Is your main goal to show composition?",
+    "yes_node": 167,
+    "no_node": 169
+  },
+  "167": {
+    "phrase": "Do you want to show composition over time?",
+    "yes_node": 171,
+    "no_node": 173
+  },
+  "171": {
+    "phrase": "Do you have a lot of time periods?",
+    "yes_node": 175,
+    "no_node": "Stacked Bar Chart"
+  },
+  "175": {
+    "phrase": "Do you want to emphasise the trend?",
+    "yes_node": "Stacked Line Chart",
+    "no_node": "Stacked Area Chart"
+  },
+  "173": {
+    "phrase": "Is there hierarchy?",
+    "yes_node": "Treemap",
+    "no_node": 185
+  },
+  "185": {
+    "phrase": "Are there more than 7 parts?",
+    "yes_node": "Bar Chart",
+    "no_node": "Pie Chart"
+  },
+  "169": {
+    "phrase": "Is your main goal to show distribution?",
+    "yes_node": 191,
+    "no_node": 193
+  },
+  "191": {
+    "phrase": "Is your data spatial?",
+    "yes_node": 195,
+    "no_node": 197
+  },
+  "195": {
+    "phrase": "Do you want to work with the raw data?",
+    "yes_node": "Dot Map",
+    "no_node": "Choropleth Map"
+  },
+  "197": {
+    "phrase": "Do you want to emphasise the shape of the distribution?",
+    "yes_node": "Density Plot",
+    "no_node": "Histogram"
+  },
+  "193": {
+    "phrase": "Is your main goal to show relationships between variables?",
+    "yes_node": 207,
+    "no_node": 209
+  },
+  "207": {
+    "phrase": "Do you want to show relationships over time?",
+    "yes_node": "Line Chart",
+    "no_node": 213
+  },
+  "213": {
+    "phrase": "Do you want to show relationships between more than two variables?",
+    "yes_node": 215,
+    "no_node": "Scatter Plot"
+  },
+  "215": {
+    "phrase": "Do you need three dimensions?",
+    "yes_node": "Bubble Chart",
+    "no_node": 221
+  },
+  "221": {
+    "phrase": "Do you want to show everything in one plot?",
+    "yes_node": "Parallel Coordinates Plot",
+    "no_node": "Scatterplot Matrix"
+  },
+  "209": {
+    "phrase": "Is your main goal to show connections?",
+    "yes_node": 227,
+    "no_node": 229
+  },
+  "227": {
+    "phrase": "Is your data spatial?",
+    "yes_node": 231,
+    "no_node": "Network"
+  },
+  "231": {
+    "phrase": "Do you want to show flow?",
+    "yes_node": "Flow Map",
+    "no_node": "Connection Map"
+  },
+  "229": {
+    "phrase": "Is your main goal to show connections?",
+    "yes_node": 239,
+    "no_node": "Table"
+  },
+  "239": {
+    "phrase": "Do you want to show location only?",
+    "yes_node": "Dot Map",
+    "no_node": 245
+  },
+  "245": {
+    "phrase": "Do you want to show how locations are connected between each other?",
+    "yes_node": 247,
+    "no_node": 249
+  },
+  "247": {
+    "phrase": "Do you want to show flow?",
+    "yes_node": "Flow Map",
+    "no_node": "Connection Map"
+  },
+  "249": {
+    "phrase": "Do you want to show a value in relation to the location?",
+    "yes_node": "Proportional Symbol Map",
+    "no_node": 257
+  },
+  "257": {
+    "phrase": "Does it need to be geographically realistic?",
+    "yes_node": "Choropleth Map",
+    "no_node": "Cartogram"
+  }
+}
