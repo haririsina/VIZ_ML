@@ -4,5 +4,6 @@ from .views import *
 
 urlpatterns = [
     path('', panel_view),
-    path('draw/', include('draw.urls'))
+    path('draw/', include('draw.urls')),
+    path('recommend/', include('recommend.urls'))
 ]
