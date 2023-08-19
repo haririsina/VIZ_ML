@@ -4,9 +4,54 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/recommend.css' %}">
+    <link rel='stylesheet' href="{% static 'css/uicons-regular-rounded.css' %}">
+    <link rel='stylesheet' href="{% static 'css/uicons-solid-rounded.css' %}">
     <title>پیشنهاد نمودار</title>
 </head>
 <body>
-    <div class="container"></div>
+    <div class="container">
+        <div class="inner_container">
+            <div class="header_container">
+                <div class="header_container">
+                    <i class="fi fi-rr-angle-right"></i>
+                    <p>بازگشت به پنل کاربری</p>
+                </div>
+            </div>
+            <div class="content_container">
+                <div class="cards_container">
+                    <div id="card_question">
+                        <p>یک متن تست که مثلا سوال است</p>
+                        <div id="card_question_hint">
+                            <i class="fi fi-sr-map-marker-question"></i>
+                            <span>راهنما</span>
+                        </div>
+                    </div>
+                    <div class="answers_cards_container">
+                        <div id="card_answer_yes">
+                            <div>
+                                <i class="fi fi-sr-thumbs-up"></i>
+                                <p>بله</p>
+                            </div>
+                            <div id="card_yes_hint">
+                                <i class="fi fi-sr-map-marker-question"></i>
+                                <span>راهنما</span>
+                            </div>
+                        </div>
+                        <div id="card_answer_no">
+                            <div>
+                                <i class="fi fi-sr-thumbs-down"></i>
+                                <p>خیر</p>
+                            </div>
+                            <div id="card_no_hint">
+                                <i class="fi fi-sr-map-marker-question"></i>
+                                <span>راهنما</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

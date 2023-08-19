@@ -50,6 +50,7 @@
     --dataset-target-color: #509FB2;
     --dataset-variable-color: #81b29a;
     --disabled-card-bg-color: #e6e6e6;
+    --question-hint-color: #509FB2;
 }
 
 ::-webkit-input-placeholder {
@@ -93,6 +94,182 @@ button:hover {
 
 .container {
     width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.inner_container {
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_container {
+    width: 100%;
+    height: 120px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1em;
+    align-items: center;
+    color: var(--hint-text-color);
+}
+
+.header_container div:hover {
+    color: var(--title-text-color);
+}
+
+.header_container div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header_container p {
+    margin-right: 1em;
+    font-family: yekan;
+}
+
+.content_container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards_container {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#card_question {
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    height: 110px;
+    background-color: white;
+}
+
+#card_question p {
+    flex: 1;
+    text-align: center;
+    font-family: yekan;
+    font-size: 1em;
+    color: var(--title-text-color);
+    text-align: center;
+}
+
+#card_question_hint, #card_yes_hint, #card_no_hint {
+    height: 100%;
+    width: 80px;
+    font-weight: bold;
+    border-radius: 12px 0 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--question-hint-color);
+    border-right: 1px dashed var(--question-hint-color);
+    background-color: rgba(80, 159, 178, .3);
+}
+
+#card_question_hint i, #card_yes_hint i, #card_no_hint i {
+    font-size: 1.3em;
+}
+
+#card_question_hint span, #card_yes_hint span, #card_no_hint span {
+    font-size: 0.7em;
+    font-family: yekan;
+    font-weight: 300;
+}
+
+.answers_cards_container {
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#card_answer_yes, #card_answer_no {
+    height: 90px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 12px;
+    background-color: white;
+    cursor: pointer;
+}
+
+#card_answer_yes p, #card_answer_no p {
+    font-size: 1.3em;
+}
+
+#card_answer_yes div:first-of-type, #card_answer_no div:first-of-type {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#card_answer_yes {
+    margin-left: .5em;
+}
+
+#card_answer_no {
+    margin-right: .5em;
+}
+
+#card_answer_yes i, #card_answer_no i {
+    margin: 0 1em;
+}
+
+#card_answer_yes p, #card_answer_no p {
+    font-family: yekan;
+}
+
+#card_answer_yes {
+    color: var(--confirm-color);
+}
+
+#card_answer_no {
+    color: var(--dismiss-color);
+}
+
+#card_yes_hint_btn_show, #card_no_hint_btn_show {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3em .5em;
+    cursor: pointer;
+}
+
+#card_yes_hint_btn_show p, #card_no_hint_btn_show p {
+    font-family: yekan;
+    font-size: .7em;
+}
+
+#card_yes_hint_btn_show p {
+    color: var(--confirm-color);
+}
+
+#card_no_hint_btn_show p {
+    color: var(--dismiss-color);
 }
