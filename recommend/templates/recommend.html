@@ -10,6 +10,16 @@
     <title>پیشنهاد نمودار</title>
 </head>
 <body>
+    <div class="dialog_wrapper">
+        <div class="dialog_container">
+            <p class="dialog_title">راهنما</p>
+            <p class="dialog_content">این یک متن اساین یک متن است این یک متن اس این یک متن اس این یک متن اس این یک متن اس</p>
+            <p class="dialog_btns_container">
+                <button class="dialog_no_btn">نمایش نمودار</button>
+                <button class="dialog_yes_btn">متوجه شدم</button>
+            </p>
+        </div>
+    </div>
     <div class="container">
         <div class="inner_container">
             <div class="header_container">
@@ -29,7 +39,7 @@
                     </div>
                     <div class="answers_cards_container">
                         <div id="card_answer_yes">
-                            <div>
+                            <div onclick="answer_clicked(this)">
                                 <i class="fi fi-sr-thumbs-up"></i>
                                 <p>بله</p>
                             </div>
@@ -39,7 +49,7 @@
                             </div>
                         </div>
                         <div id="card_answer_no">
-                            <div>
+                            <div onclick="answer_clicked(this)">
                                 <i class="fi fi-sr-thumbs-down"></i>
                                 <p>خیر</p>
                             </div>
@@ -53,5 +63,6 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/recommend.js' %}"></script>
 </body>
 </html>
