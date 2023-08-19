@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'account',
     'panel',
     'draw',
-    'recommend'
+    'recommend',
+    'core'
 ]
 
 MIDDLEWARE = [
