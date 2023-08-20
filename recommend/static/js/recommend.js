@@ -10,7 +10,8 @@ const dialog_content = document.querySelector(".dialog_content")
 const dialog_btn_yes = document.querySelector(".dialog_yes_btn")
 const dialog_btn_no = document.querySelector(".dialog_no_btn")
 const container = document.querySelector(".container")
-
+const plot_image_wrapper = document.querySelector(".plot_image_wrapper")
+const plot_image = document.querySelector(".plot_image_wrapper img")
 
 
 
@@ -102,7 +103,7 @@ yes_hint.onclick = (e) => {
         dialog(true, "راهنما", yes_hint.getAttribute("data-hint"))
         if (yes_hint.getAttribute("data-hint-url") && yes_hint.getAttribute("data-hint-url") != "") {
             dialog_btn_no.style.display = "flex"
-            dialog_btn_no.getAttribute("data-hint-url")
+            dialog_btn_no.setAttribute("data-hint-url", yes_hint.getAttribute("data-hint-url"))
         } else {
             dialog_btn_no.style.display = "none"
         }
@@ -114,11 +115,20 @@ no_hint.onclick = (e) => {
         dialog(true, "راهنما", no_hint.getAttribute("data-hint"))
         if (no_hint.getAttribute("data-hint-url") && no_hint.getAttribute("data-hint-url") != "") {
             dialog_btn_no.style.display = "flex"
-            dialog_btn_no.getAttribute("data-hint-url")
+            dialog_btn_no.setAttribute("data-hint-url", no_hint.getAttribute("data-hint-url"))
         } else {
             dialog_btn_no.style.display = "none"
         }
     }
+}
+
+dialog_btn_no.onclick = () => {
+    plot_image.src = dialog_btn_no.getAttribute("data-hint-url")
+    plot_image_wrapper.style.display = "flex"
+}
+
+plot_image_wrapper.onclick = () => {
+    plot_image_wrapper.style.display = "none"
 }
 
 (async () => {

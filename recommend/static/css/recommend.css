@@ -359,3 +359,22 @@ button:hover {
 .blured {
     filter: blur(10px);
 }
+
+.plot_image_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    cursor: pointer;
+    transition: .3s;
+    background-color: rgba(0,0,0,.5);
+    z-index: 20;
+    display: none;
+}
+
+.plot_image_wrapper img {
+    border-radius: 12px;
+    max-width: 1000px;
+}
