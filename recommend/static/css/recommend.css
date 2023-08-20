@@ -112,7 +112,7 @@ button:hover {
 .header_container {
     width: 100%;
     height: 120px;
-    margin-top: 60px;
+    margin-top: 10px;
     display: flex;
     justify-content: flex-start;
     font-size: 1em;
@@ -377,4 +377,81 @@ button:hover {
 .plot_image_wrapper img {
     border-radius: 12px;
     max-width: 1000px;
+}
+
+.success_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    font-family: yekan;
+}
+
+#success_animation {
+    flex: 1;
+}
+
+.result_container {
+    flex: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.success_hint {
+    color: var(--hint-text-color);
+    font-size: 2em;
+}
+
+#recommended_chart {
+    color: var(--confirm-color);
+    font-weight: bold;
+    font-size: 3em;
+    margin: .5em;
+}
+
+.success_draw_question {
+    margin-top: 1em;
+    color: #424242;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(to right, var(--background-color), var(--hint-text-color), var(--background-color));
+}
+
+.success_btns_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success_yes_btn {
+    width: 100px;
+    background-color: var(--main-color);
+    color: white;
+    font-family: yekan;
+    font-size: 1em;
+    border-radius: 16px;
+    padding: .5em 1em;
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+.success_no_btn {
+    width: 100px;
+    background-color: var(--background-color);
+    color: var(--main-color);
+    font-family: yekan;
+    font-size: 1em;
+    border-radius: 16px;
+    padding: .5em 1em;
+    border: 1px solid var(--main-color);
+    cursor: pointer;
 }

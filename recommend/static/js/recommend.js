@@ -12,6 +12,10 @@ const dialog_btn_no = document.querySelector(".dialog_no_btn")
 const container = document.querySelector(".container")
 const plot_image_wrapper = document.querySelector(".plot_image_wrapper")
 const plot_image = document.querySelector(".plot_image_wrapper img")
+const success_container = document.querySelector(".success_container")
+const cards_container = document.querySelector(".cards_container")
+const success_animation = document.querySelector("#success_animation")
+const recommended_chart = document.querySelector("#recommended_chart")
 
 
 
@@ -65,7 +69,10 @@ async function answer_clicked(elmnt) {
     if (parseInt(answer_data)) {
         load_node_data(await get_next_question(answer_data))
     } else {
-
+        recommended_chart.innerText = answer_data
+        cards_container.style.display = 'none'
+        success_container.style.display = 'flex'
+        success_animation.play()
     }
 }
 

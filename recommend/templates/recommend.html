@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="inner_container">
+        <div class="inner_container" >
             <div class="header_container">
                 <div class="header_container">
                     <i class="fi fi-rr-angle-right"></i>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="content_container">
-                <div class="cards_container">
+                <div class="cards_container" >
                     <div id="card_question">
                         <p>یک متن تست که مثلا سوال است</p>
                         <div id="card_question_hint">
@@ -63,9 +63,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="success_container" style="display: none;">
+                    <div class="result_container">
+                        <p class="success_hint">نمودار پیشنهادی:</p>
+                        <p id="recommended_chart">Stacked Area Chart</p>
+                        <div class="separator"></div>
+                        <p class="success_draw_question">آیا تمایل به رسم نمودار دارید؟</p>
+                        <div class="success_btns_container">
+                            <button class="success_yes_btn">بله</button>
+                            <button class="success_no_btn">خیر</button>
+                        </div>
+                    </div>
+                    <lottie-player id="success_animation" src="{% static 'animations/success.json' %}" background="transparent"  speed="1"></lottie-player>
+                </div>
             </div>
         </div>
     </div>
+    <script src="{% static 'js/lottie-player.js' %}"></script>
     <script src="{% static 'js/recommend.js' %}"></script>
 </body>
 </html>
