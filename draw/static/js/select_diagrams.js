@@ -28,3 +28,11 @@ const on_digram_clicked = (elmnt) => {
     navigateTo(SECTION_SELECT_DATASET)
     // load_dataset_fields()
 }
+
+let urlParams = new URLSearchParams(window.location.search);
+let param = urlParams.get('diagram');
+
+if (param) {
+    selected_diagram = param
+    navigateTo(SECTION_SELECT_DATASET)
+}

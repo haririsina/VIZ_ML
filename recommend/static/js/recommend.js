@@ -16,7 +16,8 @@ const success_container = document.querySelector(".success_container")
 const cards_container = document.querySelector(".cards_container")
 const success_animation = document.querySelector("#success_animation")
 const recommended_chart = document.querySelector("#recommended_chart")
-
+const success_yes_btn = document.querySelector(".success_yes_btn")
+const success_no_btn = document.querySelector(".success_no_btn")
 
 
 async function get_next_question(next_node_id) {
@@ -136,6 +137,10 @@ dialog_btn_no.onclick = () => {
 
 plot_image_wrapper.onclick = () => {
     plot_image_wrapper.style.display = "none"
+}
+
+success_yes_btn.onclick = () => {
+    window.location.replace("http://127.0.0.1:8000/panel/draw?diagram=" + recommended_chart.innerText.replaceAll(" ", "_"))
 }
 
 (async () => {
