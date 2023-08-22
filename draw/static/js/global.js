@@ -63,8 +63,7 @@ const navigateTo = section_name => {
             section_select_dataset.style.display = "flex"
             break
         case SECTION_SELECT_DIAGRAM:
-            section_select_dataset.style.display = "none"
-            section_select_diagram.style.display = "flex"
+            window.location.replace("http://127.0.0.1:8000/panel/draw")
             break
         case SECTION_SELECT_FIELDS:
             load_dataset_fields()

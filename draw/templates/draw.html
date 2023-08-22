@@ -40,8 +40,10 @@
         <div class="inner_container" id="section_select_diagram" >
             <div class="header_container">
                 <div class="header_container">
-                    <i class="fi fi-rr-angle-right"></i>
-                    <p>بازگشت به پنل کاربری</p>
+                    <div id="back_to_panel">
+                        <i class="fi fi-rr-angle-right"></i>
+                        <p>بازگشت به پنل کاربری</p>
+                    </div>
                 </div>
             </div>
             <div class="content_container">
@@ -103,7 +105,7 @@
                 </div>
                 <div class="digram_item_container" id="Pie_Chart" onclick="on_digram_clicked(this)">
                     <p>نمودار دایره ای</p>
-                    <div id="preview_diagram_pie_chart"></div>
+                    <img src="{% static 'imgs/preview_pie.png' %}"/>
                 </div>
                 <div class="digram_item_container" id="Radar_Plot" onclick="on_digram_clicked(this)">
                     <p>رادار</p>

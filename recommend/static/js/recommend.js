@@ -18,6 +18,7 @@ const success_animation = document.querySelector("#success_animation")
 const recommended_chart = document.querySelector("#recommended_chart")
 const success_yes_btn = document.querySelector(".success_yes_btn")
 const success_no_btn = document.querySelector(".success_no_btn")
+const back_to_panel = document.querySelector("#back_to_panel")
 
 
 async function get_next_question(next_node_id) {
@@ -141,6 +142,14 @@ plot_image_wrapper.onclick = () => {
 
 success_yes_btn.onclick = () => {
     window.location.replace("http://127.0.0.1:8000/panel/draw?diagram=" + recommended_chart.innerText.replaceAll(" ", "_"))
+}
+
+success_no_btn.onclick = () => {
+    window.location.replace("http://127.0.0.1:8000/panel")
+}
+
+back_to_panel.onclick = () => {
+    window.location.replace("http://127.0.0.1:8000/panel")
 }
 
 (async () => {

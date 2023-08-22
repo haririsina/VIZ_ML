@@ -19,6 +19,8 @@ const DIAGRAM_HEAT_MAP = "Heat_Map"
 const DIAGRAM_DENSITY_PLOT = "Density_Plot"
 const DIAGRAM_DOT_AND_LINE_CHART = "Dot_and_line_chart"
 
+const back_to_panel = document.querySelector("#back_to_panel")
+
 
 
 let selected_diagram
@@ -35,4 +37,8 @@ let param = urlParams.get('diagram');
 if (param) {
     selected_diagram = param
     navigateTo(SECTION_SELECT_DATASET)
+}
+
+back_to_panel.onclick = () => {
+    window.location.replace("http://127.0.0.1:8000/panel")
 }
