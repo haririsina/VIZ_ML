@@ -57,11 +57,11 @@ function load_node_data(data) {
     }
 
     if (data['no_url'] != "") {
-        yes_hint.setAttribute("data-hint-url", data['yes_url'])
+        no_hint.setAttribute("data-hint-url", data['no_url'])
     }
 
     if (data['yes_url'] != "") {
-        no_hint.setAttribute("data-hint-url", data['no_url'])
+        yes_hint.setAttribute("data-hint-url", data['yes_url'])
     }
 
 }
