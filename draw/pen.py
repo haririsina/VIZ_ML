@@ -426,21 +426,15 @@ def plot_network_chart(dataset, variables):
         mode='lines'
     )
 
-    fig = go.Figure(data=[edge_trace],
-             layout=go.Layout(
-                title='<br>Network graph made with Python',
-                titlefont_size=16,
-                showlegend=False,
-                hovermode='closest',
-                margin=dict(b=20,l=5,r=5,t=40),
-                annotations=[ dict(
-                    text="Python code: <a href='https://plotly.com/ipython-notebooks/network-graphs/'> https://plotly.com/ipython-notebooks/network-graphs/</a>",
-                    showarrow=False,
-                    xref="paper", yref="paper",
-                    x=0.005, y=-0.002 ) ],
-                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
-                )
+    fig = go.Figure(
+        data=[edge_trace],
+        layout=go.Layout(
+        showlegend=False,
+        hovermode='closest',
+        margin=dict(b=20,l=5,r=5,t=40),
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
+    )
     
     node_x = []
     node_y = []
@@ -475,16 +469,9 @@ def plot_network_chart(dataset, variables):
 
     fig = go.Figure(data=[edge_trace, node_trace],
                 layout=go.Layout(
-                    title='<br>Network graph made with Python',
-                    titlefont_size=16,
                     showlegend=False,
                     hovermode='closest',
                     margin=dict(b=20,l=5,r=5,t=40),
-                    annotations=[ dict(
-                        text="Python code: <a href='https://plotly.com/ipython-notebooks/network-graphs/'> https://plotly.com/ipython-notebooks/network-graphs/</a>",
-                        showarrow=False,
-                        xref="paper", yref="paper",
-                        x=0.005, y=-0.002 ) ],
                     xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                     yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                 )
