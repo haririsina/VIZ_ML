@@ -159,6 +159,9 @@ function send_diagram_data() {
 
     fetch("http://127.0.0.1:8000/panel/draw/4631f492-e29b-4b75-92f0-68de73580db8", {
         method: 'POST',
+        headers: {
+            'Authorization': "Token " + localStorage["token"]
+        },
         body: formData
     }).then(r => {
         loading(false)

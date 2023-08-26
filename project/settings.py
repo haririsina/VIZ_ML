@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'panel',
     'draw',
     'recommend',
-    'core'
+    'core',
+    'history'
 ]
 
 MIDDLEWARE = [

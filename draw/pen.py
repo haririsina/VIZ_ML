@@ -70,6 +70,8 @@ def plot_pie_chart(dataset, target, variables) -> str:
     df = pd.read_csv(data, sep=",")
     fig = px.pie(df, values=target, names=variables[0])
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -79,6 +81,8 @@ def plot_line_chart(dataset, target, variables) -> str:
     df = pd.read_csv(data, sep=",")
     fig = px.line(data_frame=df, x=variables[0], y=target, color=variables[1] if len(variables) > 1 else None)
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -90,6 +94,8 @@ def plot_area_chart(dataset, target, variables) -> str:
     fig = px.area(df, x=variables[0], y=target, color=variables[1] if len(variables) > 1 else None)
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -101,6 +107,8 @@ def plot_dot_line_chart(dataset, target, variables) -> str:
 
     fig = px.line(df, x=variables[0], y=target, color=variables[1] if len(variables) > 1 else None, markers=True)
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -132,6 +140,8 @@ def plot_heat_map_chart(dataset, target, variables) -> str:
     fig = go.Figure(data=[trace], layout=layout)
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -172,6 +182,8 @@ def plot_density_chart(dataset, target, variables) -> str:
     fig = go.Figure(data=[trace], layout=layout)
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -210,6 +222,8 @@ def plot_bubble_chart(dataset, target, variables) -> str:
     # Create the figure with the trace and layout
     fig = go.Figure(data=[trace], layout=layout)
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -225,6 +239,8 @@ def plot_scatter_chart(dataset, target, variables):
         symbol=variables[1] if len(variables) > 1 else None
     )
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -240,6 +256,8 @@ def plot_scatter_matrix_chart(dataset, target, variables):
     )
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -256,6 +274,8 @@ def plot_parallel_coordinates_chart(dataset, target, variables):
     )
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -270,6 +290,8 @@ def plot_bar_chart(dataset, target, variables):
     )
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -286,6 +308,8 @@ def plot_stacked_bar_chart(dataset, target, variables, barmode=None):
     )
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -311,6 +335,8 @@ def plot_table_chart(dataset, target, variables):
     )
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -331,6 +357,8 @@ def plot_treemap_chart(dataset, target, variables):
     fig.update_layout(margin=dict(t=50, l=25, r=25, b=25))
 
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -340,6 +368,8 @@ def plot_histogram_chart(dataset, variables):
     df = pd.read_csv(data, sep=",")
     fig = px.histogram(df, x=variables[0], color=variables[1] if len(variables) > 1 else None)
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -350,6 +380,8 @@ def plot_radar_chart(dataset, target, variables):
     fig = px.line_polar(df, r=target, theta=variables[0])
     fig.update_traces(fill='toself')
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name
 
@@ -459,5 +491,7 @@ def plot_network_chart(dataset, variables):
     
     
     file_name = f"{uuid.uuid4()}.html"
+    thumb_name = f"{file_name.split('.')[0]}.png"
+    fig.write_image(f"media/{thumb_name}")
     fig.write_html(f"media/{file_name}")
     return file_name

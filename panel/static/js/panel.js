@@ -2,6 +2,7 @@ const card_recommend = document.querySelector("#card_recommend")
 const card_draw = document.querySelector("#card_draw")
 const action_logout = document.querySelector("#action_logout")
 const user_name = document.querySelector("#user_name")
+const card_history = document.querySelector("#card_history")
 
 card_recommend.onclick = () => {
     window.location = "http://127.0.0.1:8000/panel/recommend"
@@ -9,6 +10,10 @@ card_recommend.onclick = () => {
 
 card_draw.onclick = () => {
     window.location = "http://127.0.0.1:8000/panel/draw"
+}
+
+card_history.onclick = () => {
+    window.location = "http://127.0.0.1:8000/panel/history"
 }
 
 action_logout.onclick = () => {
