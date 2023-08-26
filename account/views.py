@@ -35,5 +35,11 @@ class LoginApiView(generics.GenericAPIView):
 login_api_view = LoginApiView.as_view()
 
 
+class CheckSessionApiView(generics.GenericAPIView):
+    def get(self, request):
+        return Response({'status': 200})
+
+check_session_api_view = CheckSessionApiView.as_view()
+
 def login_view(request):
     return render(request, 'account.html')

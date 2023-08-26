@@ -288,3 +288,7 @@ input_register_pass.addEventListener("focus", () => {
 input_register_pass_repeat.addEventListener("focus", () => {
     input_register_pass_repeat.style.borderColor = "#dddddd"
 })
+
+if (localStorage['token']) {
+    window.location.replace("http://127.0.0.1:8000/panel")
+}
