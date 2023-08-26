@@ -9,6 +9,7 @@ let dataset_variables = []
 
 const load_dataset_fields = () => {
     dataset_columns_titles.forEach(title => {
+        if (title == "") return
         let field_item = field_item_sample.cloneNode(true)
         field_item.querySelector("p").innerText = title
         field_item.classList.remove('sample')
