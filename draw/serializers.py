@@ -6,7 +6,7 @@ from .models import Diagram
 class DrawSerializer(serializers.Serializer):
     diagram_name = serializers.CharField(required=True)
     dataset = serializers.CharField(required=True)
-    target = serializers.CharField(required=True)
+    target = serializers.CharField(default="")
     variables = serializers.CharField(required=True)
 
 

@@ -444,6 +444,11 @@ button:hover {
     background-color: white;
 }
 
+#dont_choose {
+    display: none;
+    background-color: rgba(224, 122, 95, .2);
+}
+
 /* ---------------------- loading ------------------------- */
 
 .loading_container {

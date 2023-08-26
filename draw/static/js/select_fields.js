@@ -3,6 +3,7 @@ const field_item_sample = document.querySelector(".field_container.sample")
 const question_container_field_type = document.querySelector(".question_container .field_type span")
 const btn_submit_fields = document.querySelector("#btn_submit_fields")
 const btn_back_to_dataset = document.querySelector("#back_to_dataset")
+const dont_choose = document.querySelector("#dont_choose")
 
 let dataset_target 
 let dataset_variables = []
@@ -21,7 +22,7 @@ const load_dataset_fields = () => {
     switch (selected_diagram) {
         case DIAGRAM_SCATTER_MATRIX:
             question_container_field_type.innerText = "هدف (اختیاری)"
-            btn_submit_fields.style.display = "block"
+            dont_choose.style.display = "flex"
             break
         case DIAGRAM_HISTOGRAM:
         case DIAGRAM_NETWORK:
@@ -44,7 +45,8 @@ const on_field_clicked = (elmnt) => {
     if (!selected) {
         elmnt.classList.add('selected')
 
-        if (!dataset_target && selected_diagram != DIAGRAM_SCATTER_MATRIX && selected_diagram != DIAGRAM_HISTOGRAM && selected_diagram != DIAGRAM_NETWORK) {
+        if (!dataset_target && selected_diagram != DIAGRAM_HISTOGRAM && selected_diagram != DIAGRAM_NETWORK) {
+            dont_choose.style.display = "none"
             label_target.style.display = "block"
             dataset_target = elmnt_title.innerText
         } else {
@@ -142,20 +144,19 @@ btn_submit_fields.onclick = () => {
     send_diagram_data()
 }
 
+dont_choose.onclick = () => {
+    dataset_target = "_skip_"
+    dont_choose.style.display = "none"
+    question_container_field_type.innerText = "متغیر" + (dataset_variables.length + 1)
+}
+
 function send_diagram_data() {
     loading(true, "در حال پردازش، لطفا صبر کنید")
-
-    let data = {
-        diagram_name: selected_diagram,
-        dataset: dataset_data,
-        target: dataset_target,
-        variables: dataset_variables
-    }
 
     let formData = new FormData()
     formData.append("diagram_name", selected_diagram.replaceAll("_", " "))
     formData.append("dataset", dataset_data)
-    formData.append("target", dataset_target)
+    formData.append("target", dataset_target == "_skip_" ? "" : dataset_target)
     formData.append("variables", JSON.stringify(dataset_variables))
 
     fetch("http://127.0.0.1:8000/panel/draw/4631f492-e29b-4b75-92f0-68de73580db8", {
