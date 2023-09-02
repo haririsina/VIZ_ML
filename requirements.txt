@@ -1,4 +1,20 @@
-Operations to perform:
-  Apply all migrations: account, admin, auth, contenttypes, draw, knox, sessions
-Running migrations:
-  No migrations to apply.
+asgiref==3.6.0
+cffi==1.15.1
+cryptography==40.0.2
+Django==4.2.1
+django-cors-headers==3.14.0
+django-rest-knox==4.2.0
+djangorestframework==3.14.0
+jdatetime==4.1.1
+kaleido==0.2.1
+numpy==1.25.1
+packaging==23.1
+pandas==2.0.3
+plotly==5.15.0
+pycparser==2.21
+python-dateutil==2.8.2
+pytz==2023.3
+six==1.16.0
+sqlparse==0.4.4
+tenacity==8.2.2
+tzdata==2023.3
